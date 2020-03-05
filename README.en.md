@@ -1,7 +1,7 @@
 # raspimouse
 
 [日本語](https://github.com/YutaSeya/raspimouse/blob/master/README.md)
-| [日本語](https://github.com/YutaSeya/raspimouse/blob/master/README.en.md)
+| [English](https://github.com/YutaSeya/raspimouse/blob/master/README.en.md)
 
 Raspberry Pi Mouse V2 sample program
 

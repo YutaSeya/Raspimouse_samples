@@ -1,7 +1,6 @@
 # raspimouse
 
-[日本語](https://github.com/YutaSeya/raspimouse/blob/master/README.md)
-| [English](https://github.com/YutaSeya/raspimouse/blob/master/README.en.md)
+[English](README.en.md) | [日本語](README.md)
 
 Raspberry Pi Mouse V2 のサンプルプログラムのリポジトリです。
 

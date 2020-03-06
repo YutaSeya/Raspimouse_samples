@@ -80,3 +80,29 @@ uint32_t Switch::get2()
 
   return (~sw_data & 0x01);
 }
+
+uint32_t Switch::getAll()
+{
+  uint32_t sw_data = 0;
+  _mtx.lock();
+  // wait busy flag down
+  while( access->checkBusy() );
+
+  access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
+
+  sw_data = access->readByte(RPI_GPIO_LEVEL_0);
+
+  access->closePeriperal();
+
+  _mtx.unlock();
+
+  // sw1 data 
+  uint32_t sw0 =  ((~sw_data & 1 << 20) >> 20) & 0x01;
+  uint32_t sw1 = ((~sw_data & 1 << 26) >> 26) & 0x01;
+  uint32_t sw2 = ((~sw_data & 1 << 21) >> 21) & 0x01;
+
+  sw_data = 0;
+  sw_data = sw0 | sw1 << 1 | sw2 << 2;
+
+  return sw_data;
+}

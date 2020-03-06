@@ -27,6 +27,8 @@ public:
   uint32_t get1();
 
   uint32_t get2();
+
+  uint32_t getAll();
 };
 
 #endif /* __SWITCH_H */

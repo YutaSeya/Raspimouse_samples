@@ -27,7 +27,7 @@ OS
 - Ubuntu 18.04LTS 32bit
 - Ubuntu 18.04LTS 64bit
 
-使用記録媒体
+recording media
 - Transcend microSDHC 16GB
 
 ## How to use

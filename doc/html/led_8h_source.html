@@ -47,46 +47,45 @@ $(function() {
 <div class="title">led.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="led_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __LED_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __LED_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mem__access_8h.html">mem_access.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_led.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_led.html">Led</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="comment">// inform pin</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="comment">// LED0 GPIO25</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="comment">// LED1 GPIO24</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="comment">// LED2 GPIO23</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="comment">// LED3 GPIO18</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_led.html#a4975f55519ceac280b9bdab853436739">   15</a></span>&#160;  <span class="keyword">static</span> <a class="code" href="class_led.html">Led</a> *<a class="code" href="class_led.html#a4975f55519ceac280b9bdab853436739">instance</a>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_led.html#aabf6def8a0aaefc37e4e53f49ab5510e">   16</a></span>&#160;  <a class="code" href="class_mem___access.html">Mem_Access</a> *<a class="code" href="class_led.html#aabf6def8a0aaefc37e4e53f49ab5510e">access</a>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_led.html#aee2f1eea3cfe7182b61455079c758bf6">init</a>();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="class_led.html#a13f58f691eaa4b8b964a2b245e8dc1af">Led</a>();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <a class="code" href="class_led.html#a9685f23dc5ca68091579ab621c44753a">~Led</a>();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">static</span> <a class="code" href="class_led.html">Led</a>* <a class="code" href="class_led.html#ab7c85469a3885c9ec891daca461f3a16">getInstance</a>();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_led.html#ac1bf5a8a1ec570fc5d1a03757325cc07">illuminate</a>(uint8_t _light);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __LED_H */</span><span class="preprocessor"></span></div>
+<a href="led_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef __LED_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define __LED_H</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mem__access_8h.html">mem_access.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_led.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_led.html">Led</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_led.html#a4975f55519ceac280b9bdab853436739">   29</a></span>&#160;  <span class="keyword">static</span> <a class="code" href="class_led.html">Led</a> *<a class="code" href="class_led.html#a4975f55519ceac280b9bdab853436739">instance</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_led.html#aabf6def8a0aaefc37e4e53f49ab5510e">   31</a></span>&#160;  <a class="code" href="class_mem___access.html">Mem_Access</a> *<a class="code" href="class_led.html#aabf6def8a0aaefc37e4e53f49ab5510e">access</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_led.html#aee2f1eea3cfe7182b61455079c758bf6">init</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <a class="code" href="class_led.html#a13f58f691eaa4b8b964a2b245e8dc1af">Led</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <a class="code" href="class_led.html#a9685f23dc5ca68091579ab621c44753a">~Led</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">static</span> <a class="code" href="class_led.html">Led</a>* <a class="code" href="class_led.html#ab7c85469a3885c9ec891daca461f3a16">getInstance</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_led.html#ac1bf5a8a1ec570fc5d1a03757325cc07">illuminate</a>(uint8_t _light);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __LED_H */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_led_html"><div class="ttname"><a href="class_led.html">Led</a></div><div class="ttdef"><b>Definition:</b> <a href="led_8h_source.html#l00007">led.h:7</a></div></div>
-<div class="ttc" id="aclass_led_html_aabf6def8a0aaefc37e4e53f49ab5510e"><div class="ttname"><a href="class_led.html#aabf6def8a0aaefc37e4e53f49ab5510e">Led::access</a></div><div class="ttdeci">Mem_Access * access</div><div class="ttdef"><b>Definition:</b> <a href="led_8h_source.html#l00016">led.h:16</a></div></div>
-<div class="ttc" id="aclass_led_html_ab7c85469a3885c9ec891daca461f3a16"><div class="ttname"><a href="class_led.html#ab7c85469a3885c9ec891daca461f3a16">Led::getInstance</a></div><div class="ttdeci">static Led * getInstance()</div><div class="ttdef"><b>Definition:</b> <a href="led_8cpp_source.html#l00041">led.cpp:41</a></div></div>
+<div class="ttc" id="aclass_led_html"><div class="ttname"><a href="class_led.html">Led</a></div><div class="ttdoc">Control to turn on / off UI LEDs.</div><div class="ttdef"><b>Definition:</b> <a href="led_8h_source.html#l00025">led.h:25</a></div></div>
+<div class="ttc" id="aclass_led_html_aabf6def8a0aaefc37e4e53f49ab5510e"><div class="ttname"><a href="class_led.html#aabf6def8a0aaefc37e4e53f49ab5510e">Led::access</a></div><div class="ttdeci">Mem_Access * access</div><div class="ttdoc">Mem_Access class instance, intialize nullptr.</div><div class="ttdef"><b>Definition:</b> <a href="led_8h_source.html#l00031">led.h:31</a></div></div>
+<div class="ttc" id="aclass_led_html_ab7c85469a3885c9ec891daca461f3a16"><div class="ttname"><a href="class_led.html#ab7c85469a3885c9ec891daca461f3a16">Led::getInstance</a></div><div class="ttdeci">static Led * getInstance()</div><div class="ttdoc">get this class instance</div><div class="ttdef"><b>Definition:</b> <a href="led_8cpp_source.html#l00041">led.cpp:41</a></div></div>
 <div class="ttc" id="aclass_mem___access_html"><div class="ttname"><a href="class_mem___access.html">Mem_Access</a></div><div class="ttdoc">This class is open /dev/mem and get address for read / write register Afterwards, Write / Read regist...</div><div class="ttdef"><b>Definition:</b> <a href="mem__access_8h_source.html#l00024">mem_access.h:24</a></div></div>
-<div class="ttc" id="aclass_led_html_ac1bf5a8a1ec570fc5d1a03757325cc07"><div class="ttname"><a href="class_led.html#ac1bf5a8a1ec570fc5d1a03757325cc07">Led::illuminate</a></div><div class="ttdeci">void illuminate(uint8_t _light)</div><div class="ttdef"><b>Definition:</b> <a href="led_8cpp_source.html#l00049">led.cpp:49</a></div></div>
-<div class="ttc" id="aclass_led_html_a4975f55519ceac280b9bdab853436739"><div class="ttname"><a href="class_led.html#a4975f55519ceac280b9bdab853436739">Led::instance</a></div><div class="ttdeci">static Led * instance</div><div class="ttdef"><b>Definition:</b> <a href="led_8h_source.html#l00015">led.h:15</a></div></div>
+<div class="ttc" id="aclass_led_html_ac1bf5a8a1ec570fc5d1a03757325cc07"><div class="ttname"><a href="class_led.html#ac1bf5a8a1ec570fc5d1a03757325cc07">Led::illuminate</a></div><div class="ttdeci">void illuminate(uint8_t _light)</div><div class="ttdoc">Turn on / off UI leds.</div><div class="ttdef"><b>Definition:</b> <a href="led_8cpp_source.html#l00049">led.cpp:49</a></div></div>
+<div class="ttc" id="aclass_led_html_a4975f55519ceac280b9bdab853436739"><div class="ttname"><a href="class_led.html#a4975f55519ceac280b9bdab853436739">Led::instance</a></div><div class="ttdeci">static Led * instance</div><div class="ttdoc">class instance, intialize nullptr</div><div class="ttdef"><b>Definition:</b> <a href="led_8h_source.html#l00029">led.h:29</a></div></div>
 <div class="ttc" id="aclass_led_html_a9685f23dc5ca68091579ab621c44753a"><div class="ttname"><a href="class_led.html#a9685f23dc5ca68091579ab621c44753a">Led::~Led</a></div><div class="ttdeci">~Led()</div><div class="ttdef"><b>Definition:</b> <a href="led_8cpp_source.html#l00013">led.cpp:13</a></div></div>
 <div class="ttc" id="aclass_led_html_a13f58f691eaa4b8b964a2b245e8dc1af"><div class="ttname"><a href="class_led.html#a13f58f691eaa4b8b964a2b245e8dc1af">Led::Led</a></div><div class="ttdeci">Led()</div><div class="ttdef"><b>Definition:</b> <a href="led_8cpp_source.html#l00007">led.cpp:7</a></div></div>
 <div class="ttc" id="amem__access_8h_html"><div class="ttname"><a href="mem__access_8h.html">mem_access.h</a></div><div class="ttdoc">The file defined Mem_Access class.</div></div>
-<div class="ttc" id="aclass_led_html_aee2f1eea3cfe7182b61455079c758bf6"><div class="ttname"><a href="class_led.html#aee2f1eea3cfe7182b61455079c758bf6">Led::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> <a href="led_8cpp_source.html#l00018">led.cpp:18</a></div></div>
+<div class="ttc" id="aclass_led_html_aee2f1eea3cfe7182b61455079c758bf6"><div class="ttname"><a href="class_led.html#aee2f1eea3cfe7182b61455079c758bf6">Led::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">initialize GPIO Pin settings.</div><div class="ttdef"><b>Definition:</b> <a href="led_8cpp_source.html#l00018">led.cpp:18</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

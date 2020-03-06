@@ -26,7 +26,7 @@ Switch* Switch::getInstance()
   return instance;
 }
 
-uint32_t Switch::getSW0()
+uint32_t Switch::get0()
 {
   uint32_t sw_data = 0;
   _mtx.lock();
@@ -44,7 +44,7 @@ uint32_t Switch::getSW0()
   return sw_data;
 }
 
-uint32_t Switch::getSW1()
+uint32_t Switch::get1()
 {
   uint32_t sw_data = 0;
   _mtx.lock();
@@ -62,7 +62,7 @@ uint32_t Switch::getSW1()
   return sw_data;
 }
 
-uint32_t Switch::getSW2()
+uint32_t Switch::get2()
 {
   uint32_t sw_data = 0;
   _mtx.lock();

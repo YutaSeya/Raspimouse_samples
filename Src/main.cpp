@@ -3,8 +3,19 @@
 #include <unistd.h>
 
 #include "led.h"
+#include "switch.h"
+
+void led_test();
+void sw_test();
 
 int main()
+{
+  //led_test();
+  sw_test();
+  return 0;
+}
+
+void led_test()
 {
   Led *led = Led::getInstance();
 
@@ -14,6 +25,12 @@ int main()
   }
   
   led->illuminate(0);
+}
 
-  return 0;
+void sw_test()
+{
+  Switch *sw = Switch::getInstance();
+
+  printf("sw0 : %d, sw1 : %d, sw2 : %d\r", sw->get0(), sw->get1(), sw->get2() );
+
 }

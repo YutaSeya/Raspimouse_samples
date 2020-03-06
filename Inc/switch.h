@@ -22,11 +22,11 @@ public:
 
   static Switch* getInstance();
 
-  uint32_t getSW0();
+  uint32_t get0();
 
-  uint32_t getSW1();
+  uint32_t get1();
 
-  uint32_t getSW2();
+  uint32_t get2();
 };
 
 #endif /* __SWITCH_H */

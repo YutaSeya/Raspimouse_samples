@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <cstdio>
 #include <unistd.h>
 
 #include "led.h"
@@ -31,6 +31,6 @@ void sw_test()
 {
   Switch *sw = Switch::getInstance();
 
-  printf("sw0 : %d, sw1 : %d, sw2 : %d\r", sw->get0(), sw->get1(), sw->get2() );
+  std::printf("sw0 : %d, sw1 : %d, sw2 : %d\r", sw->get0(), sw->get1(), sw->get2() );
 
 }

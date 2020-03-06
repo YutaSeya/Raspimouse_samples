@@ -5,6 +5,7 @@ Switch* Switch::instance = nullptr;
 
 Switch::Switch()
 {
+  access = Mem_Access::getInstance();
   init();
 }
 

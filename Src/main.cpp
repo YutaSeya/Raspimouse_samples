@@ -10,8 +10,8 @@ void sw_test();
 
 int main()
 {
-  //led_test();
-  sw_test();
+  led_test();
+  //sw_test();
   return 0;
 }
 

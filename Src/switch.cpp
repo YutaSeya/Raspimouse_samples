@@ -42,7 +42,7 @@ uint32_t Switch::get0()
 
   _mtx.unlock();
 
-  return sw_data;
+  return (~sw_data & 1 << 20);
 }
 
 uint32_t Switch::get1()
@@ -60,7 +60,7 @@ uint32_t Switch::get1()
 
   _mtx.unlock();
 
-  return sw_data;
+  return (~sw_data & 1 << 26);
 }
 
 uint32_t Switch::get2()
@@ -78,5 +78,5 @@ uint32_t Switch::get2()
 
   _mtx.unlock();
 
-  return sw_data;
+  return (~sw_data & 1 << 21);
 }

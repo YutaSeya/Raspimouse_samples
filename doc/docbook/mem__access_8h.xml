@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_mem__access_8h">
+<title>mem_access.h File Reference</title>
+<indexterm><primary>mem_access.h</primary></indexterm>
+<programlisting>#include &lt;stdint.h&gt;
+#include &lt;mutex&gt;
+</programlisting><section>
+<title>Detailed Description</title>
+
+<para><formalpara><title>Author</title>
+
+<para>Yuta S. </para>
+</formalpara>
+<formalpara><title>Version</title>
+
+<para>0.1</para>
+</formalpara>
+The file defined Mem_Access class. </para>
+</section>
+</section>

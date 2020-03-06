@@ -1,3 +1,10 @@
+/**
+ * @file mem_access.h
+ * @author Yuta S.
+ * @version 0.1
+ * @brief The file defined Mem_Access class.
+*/ 
+
 #ifndef __MEM_ACCESS_H
 #define __MEM_ACCESS_H
 
@@ -6,6 +13,13 @@
 
 extern std::mutex _mtx;
 
+/**
+ * @class Mem_Access
+ * @brief 
+ *  This class is open /dev/mem and get address 
+ *  for read / write register
+ *  Afterwards, Write / Read register.
+*/ 
 class Mem_Access
 {
 private:

@@ -10,8 +10,8 @@ void sw_test();
 
 int main()
 {
-  //led_test();
-  sw_test();
+  led_test();
+  //sw_test();
   return 0;
 }
 
@@ -31,9 +31,10 @@ void sw_test()
 {
   Switch *sw = Switch::getInstance();
 
+  std::printf("ctr + c exit this program\n");
+
   while(1){
     std::printf("sw0 : %d, sw1 : %d, sw2 : %d\r", sw->get0(), sw->get1(), sw->get2() );
   }
   
-
 }

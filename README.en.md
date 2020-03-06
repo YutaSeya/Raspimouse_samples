@@ -76,8 +76,12 @@ This repository structure is as follows.
 - .gitignore
 - README.md
 - LICENSE
+- Doc
+  - make Doxygen HTML file etc
 
 Now, I update this repository. So this repository sturcture may change from time to time. I hope you will understand this.
+
+Document is [this pages](./doc/html/index.html).
 
 ## About LICENSE
 

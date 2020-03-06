@@ -73,8 +73,12 @@ sudo make run
 - .gitignore
 - README.md
 - LICENSE
+- Doc
+  - Doxygenで作成したHTMLファイル等
 
 現在、ソフトウェアを随時更新しているためIncやSrc直下のディレクトリ構造等は随時変化する可能性があります。ご了承ください。
+
+ドキュメントは[こちら](./doc/html/index.html)です。
 
 ## ライセンスについて
 このリポジトリはGPLv3ライセンスで公開されています。詳細は[LICENSE](https://github.com/YutaSeya/raspimouse/blob/master/LICENSE)を確認してください。

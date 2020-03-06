@@ -1,3 +1,10 @@
+/**
+ * @file register_address.h
+ * @author Yuta S.
+ * @version 0.1
+ * @brief The file defined the Raspberry Pi registers.
+*/ 
+
 #ifndef __REGISTER_ADDRESS_H
 #define __REGISTER_ADDRESS_H
 

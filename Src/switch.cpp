@@ -36,13 +36,13 @@ uint32_t Switch::get0()
 
   access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
 
-  sw_data = access->readBit(RPI_GPIO_LEVEL_0, 1 << 20);
+  sw_data = (access->readBit(RPI_GPIO_LEVEL_0, 1 << 20) >> 20);
 
   access->closePeriperal();
 
   _mtx.unlock();
 
-  return (~sw_data & 1 << 20);
+  return (~sw_data & 0x01);
 }
 
 uint32_t Switch::get1()
@@ -54,13 +54,13 @@ uint32_t Switch::get1()
 
   access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
 
-  sw_data = access->readBit(RPI_GPIO_LEVEL_0, 1 << 26);
+  sw_data = (access->readBit(RPI_GPIO_LEVEL_0, 1 << 26) >> 26);
 
   access->closePeriperal();
 
   _mtx.unlock();
 
-  return (~sw_data & 1 << 26);
+  return (~sw_data & 0x01);
 }
 
 uint32_t Switch::get2()
@@ -72,11 +72,11 @@ uint32_t Switch::get2()
 
   access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
 
-  sw_data = access->readBit(RPI_GPIO_LEVEL_0, 1 << 21);
+  sw_data = (access->readBit(RPI_GPIO_LEVEL_0, 1 << 21) >> 21);
 
   access->closePeriperal();
 
   _mtx.unlock();
 
-  return (~sw_data & 1 << 21);
+  return (~sw_data & 0x01);
 }

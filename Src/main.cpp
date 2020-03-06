@@ -31,6 +31,9 @@ void sw_test()
 {
   Switch *sw = Switch::getInstance();
 
-  std::printf("sw0 : %d, sw1 : %d, sw2 : %d\r", sw->get0(), sw->get1(), sw->get2() );
+  while(1){
+    std::printf("sw0 : %d, sw1 : %d, sw2 : %d\r", sw->get0(), sw->get1(), sw->get2() );
+  }
+  
 
 }

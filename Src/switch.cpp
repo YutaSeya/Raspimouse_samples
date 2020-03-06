@@ -15,7 +15,7 @@ Switch::~Switch()
 
 void Switch::init()
 {
-
+  // reset value sets input mode
 }
 
 Switch* Switch::getInstance()
@@ -24,4 +24,58 @@ Switch* Switch::getInstance()
     instance = new Switch();
   }
   return instance;
+}
+
+uint32_t Switch::getSW0()
+{
+  uint32_t sw_data = 0;
+  _mtx.lock();
+  // wait busy flag down
+  while( access->checkBusy() );
+
+  access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
+
+  sw_data = access->readBit(RPI_GPIO_LEVEL_0, 1 << 20);
+
+  access->closePeriperal();
+
+  _mtx.unlock();
+
+  return sw_data;
+}
+
+uint32_t Switch::getSW1()
+{
+  uint32_t sw_data = 0;
+  _mtx.lock();
+  // wait busy flag down
+  while( access->checkBusy() );
+
+  access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
+
+  sw_data = access->readBit(RPI_GPIO_LEVEL_0, 1 << 26);
+
+  access->closePeriperal();
+
+  _mtx.unlock();
+
+  return sw_data;
+}
+
+uint32_t Switch::getSW2()
+{
+  uint32_t sw_data = 0;
+  _mtx.lock();
+  // wait busy flag down
+  while( access->checkBusy() );
+
+  access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
+
+  sw_data = access->readBit(RPI_GPIO_LEVEL_0, 1 << 21);
+
+  access->closePeriperal();
+
+  _mtx.unlock();
+
+  return sw_data;
 }

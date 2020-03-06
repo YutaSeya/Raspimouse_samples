@@ -42,6 +42,9 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_mem___access-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Mem_Access Class Reference</div>  </div>
@@ -60,31 +63,76 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2de1a9c0db13115dcbb26a91fd97e8b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#a2de1a9c0db13115dcbb26a91fd97e8b8">~Mem_Access</a> ()</td></tr>
 <tr class="separator:a2de1a9c0db13115dcbb26a91fd97e8b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56fc22674cc101f3c35a2e2d24835e79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#a56fc22674cc101f3c35a2e2d24835e79">openPeriperal</a> (uint32_t length, uint32_t offset)</td></tr>
+<tr class="memdesc:a56fc22674cc101f3c35a2e2d24835e79"><td class="mdescLeft">&#160;</td><td class="mdescRight">open peripheral by length and offset.  <a href="class_mem___access.html#a56fc22674cc101f3c35a2e2d24835e79">More...</a><br /></td></tr>
 <tr class="separator:a56fc22674cc101f3c35a2e2d24835e79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4a0da870e0873c4a479dfb2c682f69b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#af4a0da870e0873c4a479dfb2c682f69b">openPeriperal</a> (uint32_t offset)</td></tr>
+<tr class="memdesc:af4a0da870e0873c4a479dfb2c682f69b"><td class="mdescLeft">&#160;</td><td class="mdescRight">open peripheral by offset.  <a href="class_mem___access.html#af4a0da870e0873c4a479dfb2c682f69b">More...</a><br /></td></tr>
 <tr class="separator:af4a0da870e0873c4a479dfb2c682f69b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c9dfd1e4c82692f6892600824fd5100"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#a2c9dfd1e4c82692f6892600824fd5100">closePeriperal</a> ()</td></tr>
+<tr class="memdesc:a2c9dfd1e4c82692f6892600824fd5100"><td class="mdescLeft">&#160;</td><td class="mdescRight">close peripheral.  <a href="class_mem___access.html#a2c9dfd1e4c82692f6892600824fd5100">More...</a><br /></td></tr>
 <tr class="separator:a2c9dfd1e4c82692f6892600824fd5100"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a7d38b4cd1cc9d12d641aa55bb915fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#a9a7d38b4cd1cc9d12d641aa55bb915fc">setBit</a> (uint32_t reg_offset, uint32_t bit)</td></tr>
+<tr class="memdesc:a9a7d38b4cd1cc9d12d641aa55bb915fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">set bit by reg_offset.  <a href="class_mem___access.html#a9a7d38b4cd1cc9d12d641aa55bb915fc">More...</a><br /></td></tr>
 <tr class="separator:a9a7d38b4cd1cc9d12d641aa55bb915fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a287410f0e766e089d4532ec95f90279d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#a287410f0e766e089d4532ec95f90279d">writeReg</a> (uint32_t reg_offset, uint32_t val)</td></tr>
+<tr class="memdesc:a287410f0e766e089d4532ec95f90279d"><td class="mdescLeft">&#160;</td><td class="mdescRight">write byte by reg_offset.  <a href="class_mem___access.html#a287410f0e766e089d4532ec95f90279d">More...</a><br /></td></tr>
 <tr class="separator:a287410f0e766e089d4532ec95f90279d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02c4e236755bb070b489f0498fdb319c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#a02c4e236755bb070b489f0498fdb319c">readBit</a> (uint32_t reg_offset, uint32_t bit)</td></tr>
+<tr class="memdesc:a02c4e236755bb070b489f0498fdb319c"><td class="mdescLeft">&#160;</td><td class="mdescRight">read bit by reg_offset.  <a href="class_mem___access.html#a02c4e236755bb070b489f0498fdb319c">More...</a><br /></td></tr>
 <tr class="separator:a02c4e236755bb070b489f0498fdb319c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae084cac0d03a5029fcaab46009987d7b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#ae084cac0d03a5029fcaab46009987d7b">readByte</a> (uint32_t reg_offset)</td></tr>
+<tr class="memdesc:ae084cac0d03a5029fcaab46009987d7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">read byte by reg_offset.  <a href="class_mem___access.html#ae084cac0d03a5029fcaab46009987d7b">More...</a><br /></td></tr>
 <tr class="separator:ae084cac0d03a5029fcaab46009987d7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb5c866c285aeb1b3a0c73d339fd32b2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#afb5c866c285aeb1b3a0c73d339fd32b2">checkBusy</a> () const</td></tr>
+<tr class="memdesc:afb5c866c285aeb1b3a0c73d339fd32b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">check busy flags.  <a href="class_mem___access.html#afb5c866c285aeb1b3a0c73d339fd32b2">More...</a><br /></td></tr>
 <tr class="separator:afb5c866c285aeb1b3a0c73d339fd32b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a669f288f029ab789548f96a6d4ecb090"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_mem___access.html">Mem_Access</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#a669f288f029ab789548f96a6d4ecb090">getInstance</a> ()</td></tr>
+<tr class="memdesc:a669f288f029ab789548f96a6d4ecb090"><td class="mdescLeft">&#160;</td><td class="mdescRight">get this class instance  <a href="class_mem___access.html#a669f288f029ab789548f96a6d4ecb090">More...</a><br /></td></tr>
 <tr class="separator:a669f288f029ab789548f96a6d4ecb090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a89939cdeafad5bc791a1b31432eb9375"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#a89939cdeafad5bc791a1b31432eb9375">openMEM</a> ()</td></tr>
+<tr class="memdesc:a89939cdeafad5bc791a1b31432eb9375"><td class="mdescLeft">&#160;</td><td class="mdescRight">open /dev/mem.  <a href="class_mem___access.html#a89939cdeafad5bc791a1b31432eb9375">More...</a><br /></td></tr>
+<tr class="separator:a89939cdeafad5bc791a1b31432eb9375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a299a066ea9712535192d158ea88d1245"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#a299a066ea9712535192d158ea88d1245">getAddress</a> (uint32_t length, uint32_t offset)</td></tr>
+<tr class="memdesc:a299a066ea9712535192d158ea88d1245"><td class="mdescLeft">&#160;</td><td class="mdescRight">get addresss by offset and length.  <a href="class_mem___access.html#a299a066ea9712535192d158ea88d1245">More...</a><br /></td></tr>
+<tr class="separator:a299a066ea9712535192d158ea88d1245"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab23e9b574686221913ab8b2f0728b9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#aab23e9b574686221913ab8b2f0728b9f">closeMEM</a> (uint32_t length)</td></tr>
+<tr class="memdesc:aab23e9b574686221913ab8b2f0728b9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">close fd, release address  <a href="class_mem___access.html#aab23e9b574686221913ab8b2f0728b9f">More...</a><br /></td></tr>
+<tr class="separator:aab23e9b574686221913ab8b2f0728b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a7af9a3d0238d8c0eedd3430303a2adac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#a7af9a3d0238d8c0eedd3430303a2adac">busy</a> = false</td></tr>
+<tr class="memdesc:a7af9a3d0238d8c0eedd3430303a2adac"><td class="mdescLeft">&#160;</td><td class="mdescRight">busy check flag. Simultaneous access measures.  <a href="class_mem___access.html#a7af9a3d0238d8c0eedd3430303a2adac">More...</a><br /></td></tr>
+<tr class="separator:a7af9a3d0238d8c0eedd3430303a2adac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef983314c8feeb7459185b3c35bb142c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#aef983314c8feeb7459185b3c35bb142c">fd</a></td></tr>
+<tr class="memdesc:aef983314c8feeb7459185b3c35bb142c"><td class="mdescLeft">&#160;</td><td class="mdescRight">File descriptor.  <a href="class_mem___access.html#aef983314c8feeb7459185b3c35bb142c">More...</a><br /></td></tr>
+<tr class="separator:aef983314c8feeb7459185b3c35bb142c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a300831a1d753e3be733ee027dd3b020f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#a300831a1d753e3be733ee027dd3b020f">address</a></td></tr>
+<tr class="memdesc:a300831a1d753e3be733ee027dd3b020f"><td class="mdescLeft">&#160;</td><td class="mdescRight">store getting Address  <a href="class_mem___access.html#a300831a1d753e3be733ee027dd3b020f">More...</a><br /></td></tr>
+<tr class="separator:a300831a1d753e3be733ee027dd3b020f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48079466e69e4a292352b450dde6cd1f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#a48079466e69e4a292352b450dde6cd1f">now_periperal_length</a> = 0</td></tr>
+<tr class="memdesc:a48079466e69e4a292352b450dde6cd1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">store useing address length  <a href="class_mem___access.html#a48079466e69e4a292352b450dde6cd1f">More...</a><br /></td></tr>
+<tr class="separator:a48079466e69e4a292352b450dde6cd1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ac1ef3d2c5fdfccbba7b820c414ed08"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#a7ac1ef3d2c5fdfccbba7b820c414ed08">error</a> = 0</td></tr>
+<tr class="memdesc:a7ac1ef3d2c5fdfccbba7b820c414ed08"><td class="mdescLeft">&#160;</td><td class="mdescRight">use errror check  <a href="class_mem___access.html#a7ac1ef3d2c5fdfccbba7b820c414ed08">More...</a><br /></td></tr>
+<tr class="separator:a7ac1ef3d2c5fdfccbba7b820c414ed08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a0ca154f5f65fbbec1fef3d57d4ddbdc9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_mem___access.html">Mem_Access</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#a0ca154f5f65fbbec1fef3d57d4ddbdc9">instance</a> = nullptr</td></tr>
+<tr class="memdesc:a0ca154f5f65fbbec1fef3d57d4ddbdc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">class instance, intialize nullptr  <a href="class_mem___access.html#a0ca154f5f65fbbec1fef3d57d4ddbdc9">More...</a><br /></td></tr>
+<tr class="separator:a0ca154f5f65fbbec1fef3d57d4ddbdc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class is open /dev/mem and get address for read / write register Afterwards, Write / Read register. </p>
 
-<p class="definition">Definition at line <a class="el" href="mem__access_8h_source.html#l00023">23</a> of file <a class="el" href="mem__access_8h_source.html">mem_access.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mem__access_8h_source.html#l00024">24</a> of file <a class="el" href="mem__access_8h_source.html">mem_access.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa50af95695b87e8eb547c5716280dd2f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa50af95695b87e8eb547c5716280dd2f">&#9670;&nbsp;</a></span>Mem_Access()</h2>
@@ -100,6 +148,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>constructor </p>
 
 <p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00016">16</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
 
@@ -119,6 +168,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>destructor </p>
 
 <p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00020">20</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
 
@@ -148,7 +198,51 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mem__access_8h_source.html#l00050">50</a> of file <a class="el" href="mem__access_8h_source.html">mem_access.h</a>.</p>
+<p>check busy flags. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mem__access_8h_source.html#l00158">158</a> of file <a class="el" href="mem__access_8h_source.html">mem_access.h</a>.</p>
+
+</div>
+</div>
+<a id="aab23e9b574686221913ab8b2f0728b9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab23e9b574686221913ab8b2f0728b9f">&#9670;&nbsp;</a></span>closeMEM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mem_Access::closeMEM </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>length</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>close fd, release address </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>set releasing address length </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00097">97</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
 
 </div>
 </div>
@@ -167,7 +261,57 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>close peripheral. </p>
+
 <p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00104">104</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a299a066ea9712535192d158ea88d1245"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a299a066ea9712535192d158ea88d1245">&#9670;&nbsp;</a></span>getAddress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mem_Access::getAddress </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>offset</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get addresss by offset and length. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lenght</td><td>set getting address length </td></tr>
+    <tr><td class="paramname">offset</td><td>set offset device address</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>if open error, assign -2 to error. </p>
+
+<p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00042">42</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
 
 </div>
 </div>
@@ -194,7 +338,41 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>get this class instance </p>
+<dl class="section return"><dt>Returns</dt><dd>this instance pointer</dd></dl>
+<p>if instance is nullptr, new create instance and return pointer. </p>
+
 <p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00025">25</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a89939cdeafad5bc791a1b31432eb9375"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89939cdeafad5bc791a1b31432eb9375">&#9670;&nbsp;</a></span>openMEM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mem_Access::openMEM </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>open /dev/mem. </p>
+<p>if open error, assign -1 to error. </p>
+
+<p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00033">33</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
 
 </div>
 </div>
@@ -224,6 +402,16 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>open peripheral by length and offset. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lenght</td><td>set getting address length </td></tr>
+    <tr><td class="paramname">offset</td><td>set offset device address</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>if error, output error code and while loop. </p>
+
 <p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00061">61</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
 
 </div>
@@ -243,6 +431,15 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>open peripheral by offset. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">offset</td><td>set offset device address</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>if error, output error code and while loop. </p>
 
 <p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00079">79</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
 
@@ -274,6 +471,17 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>read bit by reg_offset. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reg_offset</td><td>set offset device address </td></tr>
+    <tr><td class="paramname">bit</td><td>set bit data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint32_t bit data</dd></dl>
+<p>Use exsample, read GPIO4 Pin readBit(RPI_GPIO_OUTPUT_SET_0, 1 &lt;&lt; 4); if you want to read in binary, you need to add a bit shift. sample: (readBit(RPI_GPIO_OUTPUT_SET_0, 1 &lt;&lt; 4) &gt;&gt; 4); </p>
+
 <p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00120">120</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
 
 </div>
@@ -293,6 +501,16 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>read byte by reg_offset. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reg_offset</td><td>set offset device address </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint32_t read byte data</dd></dl>
+<p>Use exsample, read input pin register readByte(RPI_GPIO_OUTPUT_SET_0) </p>
 
 <p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00125">125</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
 
@@ -324,6 +542,16 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>set bit by reg_offset. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reg_offset</td><td>set offset device address </td></tr>
+    <tr><td class="paramname">bit</td><td>set bit data</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Use exsample, Set GPIO4 Pin setBit(RPI_GPIO_OUTPUT_SET_0, 1 &lt;&lt; 4) </p>
+
 <p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00110">110</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
 
 </div>
@@ -354,7 +582,174 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>write byte by reg_offset. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reg_offset</td><td>set offset device address </td></tr>
+    <tr><td class="paramname">val</td><td>set byte data</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Use exsample, Set GPIO3 and GPIO4 writeReg(RPI_GPIO_OUTPUT_SET_0, 0x0007) </p>
+
 <p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00115">115</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a300831a1d753e3be733ee027dd3b020f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a300831a1d753e3be733ee027dd3b020f">&#9670;&nbsp;</a></span>address</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Mem_Access::address</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>store getting Address </p>
+
+<p class="definition">Definition at line <a class="el" href="mem__access_8h_source.html#l00038">38</a> of file <a class="el" href="mem__access_8h_source.html">mem_access.h</a>.</p>
+
+</div>
+</div>
+<a id="a7af9a3d0238d8c0eedd3430303a2adac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7af9a3d0238d8c0eedd3430303a2adac">&#9670;&nbsp;</a></span>busy</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Mem_Access::busy = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>busy check flag. Simultaneous access measures. </p>
+
+<p class="definition">Definition at line <a class="el" href="mem__access_8h_source.html#l00034">34</a> of file <a class="el" href="mem__access_8h_source.html">mem_access.h</a>.</p>
+
+</div>
+</div>
+<a id="a7ac1ef3d2c5fdfccbba7b820c414ed08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ac1ef3d2c5fdfccbba7b820c414ed08">&#9670;&nbsp;</a></span>error</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t Mem_Access::error = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>use errror check </p>
+
+<p class="definition">Definition at line <a class="el" href="mem__access_8h_source.html#l00042">42</a> of file <a class="el" href="mem__access_8h_source.html">mem_access.h</a>.</p>
+
+</div>
+</div>
+<a id="aef983314c8feeb7459185b3c35bb142c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef983314c8feeb7459185b3c35bb142c">&#9670;&nbsp;</a></span>fd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Mem_Access::fd</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>File descriptor. </p>
+
+<p class="definition">Definition at line <a class="el" href="mem__access_8h_source.html#l00036">36</a> of file <a class="el" href="mem__access_8h_source.html">mem_access.h</a>.</p>
+
+</div>
+</div>
+<a id="a0ca154f5f65fbbec1fef3d57d4ddbdc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ca154f5f65fbbec1fef3d57d4ddbdc9">&#9670;&nbsp;</a></span>instance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_mem___access.html">Mem_Access</a> * Mem_Access::instance = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>class instance, intialize nullptr </p>
+
+<p class="definition">Definition at line <a class="el" href="mem__access_8h_source.html#l00044">44</a> of file <a class="el" href="mem__access_8h_source.html">mem_access.h</a>.</p>
+
+</div>
+</div>
+<a id="a48079466e69e4a292352b450dde6cd1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48079466e69e4a292352b450dde6cd1f">&#9670;&nbsp;</a></span>now_periperal_length</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Mem_Access::now_periperal_length = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>store useing address length </p>
+
+<p class="definition">Definition at line <a class="el" href="mem__access_8h_source.html#l00040">40</a> of file <a class="el" href="mem__access_8h_source.html">mem_access.h</a>.</p>
 
 </div>
 </div>

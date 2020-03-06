@@ -94,9 +94,9 @@ void Mem_Access::openPeriperal(uint32_t offset)
   }
 }
 
-void Mem_Access::closeMEM(uint32_t size)
+void Mem_Access::closeMEM(uint32_t length)
 {
-  munmap((void*)address, size);
+  munmap((void*)address, length);
   close(fd);
   busy = false;
 }

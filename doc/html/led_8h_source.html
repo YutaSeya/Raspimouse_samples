@@ -61,10 +61,10 @@ $(function() {
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="comment">// LED2 GPIO23</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="comment">// LED3 GPIO18</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">static</span> <a class="code" href="class_led.html">Led</a> *instance;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <a class="code" href="class_mem___access.html">Mem_Access</a> *access;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_led.html#a4975f55519ceac280b9bdab853436739">   15</a></span>&#160;  <span class="keyword">static</span> <a class="code" href="class_led.html">Led</a> *<a class="code" href="class_led.html#a4975f55519ceac280b9bdab853436739">instance</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_led.html#aabf6def8a0aaefc37e4e53f49ab5510e">   16</a></span>&#160;  <a class="code" href="class_mem___access.html">Mem_Access</a> *<a class="code" href="class_led.html#aabf6def8a0aaefc37e4e53f49ab5510e">access</a>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keywordtype">void</span> init();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_led.html#aee2f1eea3cfe7182b61455079c758bf6">init</a>();</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="class_led.html#a13f58f691eaa4b8b964a2b245e8dc1af">Led</a>();</div>
@@ -78,12 +78,15 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __LED_H */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclass_led_html"><div class="ttname"><a href="class_led.html">Led</a></div><div class="ttdef"><b>Definition:</b> <a href="led_8h_source.html#l00007">led.h:7</a></div></div>
+<div class="ttc" id="aclass_led_html_aabf6def8a0aaefc37e4e53f49ab5510e"><div class="ttname"><a href="class_led.html#aabf6def8a0aaefc37e4e53f49ab5510e">Led::access</a></div><div class="ttdeci">Mem_Access * access</div><div class="ttdef"><b>Definition:</b> <a href="led_8h_source.html#l00016">led.h:16</a></div></div>
 <div class="ttc" id="aclass_led_html_ab7c85469a3885c9ec891daca461f3a16"><div class="ttname"><a href="class_led.html#ab7c85469a3885c9ec891daca461f3a16">Led::getInstance</a></div><div class="ttdeci">static Led * getInstance()</div><div class="ttdef"><b>Definition:</b> <a href="led_8cpp_source.html#l00041">led.cpp:41</a></div></div>
-<div class="ttc" id="aclass_mem___access_html"><div class="ttname"><a href="class_mem___access.html">Mem_Access</a></div><div class="ttdoc">This class is open /dev/mem and get address for read / write register Afterwards, Write / Read regist...</div><div class="ttdef"><b>Definition:</b> <a href="mem__access_8h_source.html#l00023">mem_access.h:23</a></div></div>
+<div class="ttc" id="aclass_mem___access_html"><div class="ttname"><a href="class_mem___access.html">Mem_Access</a></div><div class="ttdoc">This class is open /dev/mem and get address for read / write register Afterwards, Write / Read regist...</div><div class="ttdef"><b>Definition:</b> <a href="mem__access_8h_source.html#l00024">mem_access.h:24</a></div></div>
 <div class="ttc" id="aclass_led_html_ac1bf5a8a1ec570fc5d1a03757325cc07"><div class="ttname"><a href="class_led.html#ac1bf5a8a1ec570fc5d1a03757325cc07">Led::illuminate</a></div><div class="ttdeci">void illuminate(uint8_t _light)</div><div class="ttdef"><b>Definition:</b> <a href="led_8cpp_source.html#l00049">led.cpp:49</a></div></div>
+<div class="ttc" id="aclass_led_html_a4975f55519ceac280b9bdab853436739"><div class="ttname"><a href="class_led.html#a4975f55519ceac280b9bdab853436739">Led::instance</a></div><div class="ttdeci">static Led * instance</div><div class="ttdef"><b>Definition:</b> <a href="led_8h_source.html#l00015">led.h:15</a></div></div>
 <div class="ttc" id="aclass_led_html_a9685f23dc5ca68091579ab621c44753a"><div class="ttname"><a href="class_led.html#a9685f23dc5ca68091579ab621c44753a">Led::~Led</a></div><div class="ttdeci">~Led()</div><div class="ttdef"><b>Definition:</b> <a href="led_8cpp_source.html#l00013">led.cpp:13</a></div></div>
 <div class="ttc" id="aclass_led_html_a13f58f691eaa4b8b964a2b245e8dc1af"><div class="ttname"><a href="class_led.html#a13f58f691eaa4b8b964a2b245e8dc1af">Led::Led</a></div><div class="ttdeci">Led()</div><div class="ttdef"><b>Definition:</b> <a href="led_8cpp_source.html#l00007">led.cpp:7</a></div></div>
 <div class="ttc" id="amem__access_8h_html"><div class="ttname"><a href="mem__access_8h.html">mem_access.h</a></div><div class="ttdoc">The file defined Mem_Access class.</div></div>
+<div class="ttc" id="aclass_led_html_aee2f1eea3cfe7182b61455079c758bf6"><div class="ttname"><a href="class_led.html#aee2f1eea3cfe7182b61455079c758bf6">Led::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> <a href="led_8cpp_source.html#l00018">led.cpp:18</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

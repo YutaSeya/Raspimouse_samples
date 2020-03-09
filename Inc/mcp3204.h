@@ -53,6 +53,8 @@ public:
    *  if instance is nullptr, new create instance and return pointer.
   */
   static Mcp3204* getInstance();
+
+  uint8_t communication(uint8_t val);
 };
 
 #endif /* __MCP3204_H */

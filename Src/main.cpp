@@ -37,12 +37,8 @@ void mcp3204_test()
   access->setBit(RPI_SPI_CS, 1 << 3);
   access->setBit(RPI_SPI_CS, 1 << 2);
 
-  // calc spi speed hz setting parameter
-  uint16_t divider = (uint16_t) ((uint32_t)BCM2835_CORE_CLK_HZ / 1000000);
-  divider &= 0xFFFE;
-
   // set clock divider
-  access->writeReg(RPI_SPI_CLK, divider);
+  access->writeReg(RPI_SPI_CLK, 0x0100);
 
   // connection spi
   // spi clear tx and rx fifos
@@ -66,39 +62,6 @@ void mcp3204_test()
 
   printf("ret = %d\r\n", ret);
 
-  // spi clear tx and rx fifos
-  access->setBit(RPI_SPI_CS, 1 << 4);
-  access->setBit(RPI_SPI_CS, 1 << 5);
-
-  // maybe wait for txd
-  while(!((access->readBit(RPI_SPI_CS,1 << 18) >> 18) & 0x01));
-
-  // write to FIFO, no barrier
-  write_data = 0x00;
-  access->writeReg(RPI_SPI_FIFO, write_data);
-
-  // wait for done to be set
-  while(!((access->readBit(RPI_SPI_CS,1 << 16) >> 16) & 0x01));
-
-  ret = access->readByte(RPI_SPI_FIFO);
-
-  printf("ret = %d\r\n", ret);
-
-  // spi clear tx and rx fifos
-  access->setBit(RPI_SPI_CS, 1 << 4);
-  access->setBit(RPI_SPI_CS, 1 << 5);
-
-  // write to FIFO, no barrier
-  write_data = 0x00;
-  access->writeReg(RPI_SPI_FIFO, write_data);
-
-  // wait for done to be set
-  while(!((access->readBit(RPI_SPI_CS,1 << 16) >> 16) & 0x01));
-
-  ret = access->readByte(RPI_SPI_FIFO);
-
-  printf("ret = %d\r\n", ret);
-
   // clear TA(transfer active)
   access->clearBit(RPI_SPI_CS, 1 << 7);
 
@@ -110,7 +73,10 @@ int main()
 {
   //led_test();
   //sw_test();
-  mcp3204_test();
+  while(1){
+    mcp3204_test();
+  }
+  
   return 0;
 }
 

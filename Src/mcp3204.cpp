@@ -44,9 +44,10 @@ void Mcp3204::init()
   while( access->checkBusy() );
   // open spi base
   access->openPeriperal(RPI_SPI_BASE);
+  // write cs 0
+  access->writeReg(RPI_SPI_CS, 0);
   // spi clear tx and rx fifos
-  access->setBit(RPI_SPI_CS, 1 << 4);
-  access->setBit(RPI_SPI_CS, 1 << 5);
+  access->setBit(RPI_SPI_CS, 1 << 4 | 1 << 5);
 
   // set SPI mode 3
   access->setBit(RPI_SPI_CS, 1 << 3);
@@ -69,8 +70,7 @@ void Mcp3204::communication(uint8_t *tx, uint8_t *rx, uint8_t length)
 
   // connection spi
   // spi clear tx and rx fifos
-  access->setBit(RPI_SPI_CS, 1 << 4);
-  access->setBit(RPI_SPI_CS, 1 << 5);
+  access->setBit(RPI_SPI_CS, 1 << 4 | 1 << 5);
 
   // set TA(transfer active)
   access->setBit(RPI_SPI_CS, 1 << 7);

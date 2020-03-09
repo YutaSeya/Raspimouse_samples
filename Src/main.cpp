@@ -9,7 +9,7 @@
 void led_test();
 void sw_test();
 
-void mcp3204_test()
+void mcp3204_test(uint8_t val)
 {
   Mem_Access *access = Mem_Access::getInstance();
 
@@ -56,7 +56,7 @@ void mcp3204_test()
   while(!((access->readBit(RPI_SPI_CS,1 << 18) >> 18) & 0x01));
 
   // write to FIFO, no barrier
-  uint32_t write_data = 0x06;
+  uint32_t write_data = val;
   access->writeReg(RPI_SPI_FIFO, write_data);
 
   // wait for done to be set
@@ -77,7 +77,9 @@ int main()
 {
   //led_test();
   //sw_test();
-  mcp3204_test();
+  mcp3204_test(0x06);
+  mcp3204_test(0x00);
+  mcp3204_test(0x00);
   return 0;
 }
 

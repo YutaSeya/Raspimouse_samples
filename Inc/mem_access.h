@@ -118,6 +118,15 @@ public:
   void setBit(uint32_t reg_offset, uint32_t bit);
 
   /**
+   * @brief clear bit by reg_offset.
+   * @param reg_offset set offset device address
+   * @param bit set bit data
+   * @details
+   *  Use exsample, clear GPIO4 Pin clearBit(RPI_GPIO_OUTPUT_SET_0, 1 << 4)
+  */
+  void clearBit(uint32_t reg_offset, uint32_t bit);
+
+  /**
    * @brief write byte by reg_offset.
    * @param reg_offset set offset device address
    * @param val set byte data

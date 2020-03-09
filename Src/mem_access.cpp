@@ -112,6 +112,11 @@ void Mem_Access::setBit(uint32_t reg_offset, uint32_t bit)
   REG(address + reg_offset) |= bit;
 }
 
+void Mem_Access::clearBit(uint32_t reg_offset, uint32_t bit)
+{
+  REG(address + reg_offset) &= ~bit;
+}
+
 void Mem_Access::writeReg(uint32_t reg_offset, uint32_t val)
 {
   REG(address + reg_offset) = val;

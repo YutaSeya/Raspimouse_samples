@@ -8,6 +8,9 @@
 #ifndef __REGISTER_ADDRESS_H
 #define __REGISTER_ADDRESS_H
 
+/* bcm2835 param */
+#define BCM2835_CORE_CLK_HZ 250000000
+
 /* --- Register Address --- */
 /* Base Addr */
 #define RPI_REG_BASE 0x3f000000
@@ -42,5 +45,15 @@
 #define RPI_CLK_OFFSET 0x101000
 #define RPI_CLK_SIZE 0x100
 #define RPI_CLK_BASE (RPI_REG_BASE + RPI_CLK_OFFSET)
+
+/* SPI Addr */
+#define RPI_SPI_OFFSET 0x204000
+#define RPI_SPI_BASE (RPI_REG_BASE + RPI_SPI_OFFSET)
+#define RPI_SPI_CS     0x0000
+#define RPI_SPI_FIFO   0x0004
+#define RPI_SPI_CLK    0x0008
+#define RPI_SPI_DLEN   0x000C
+#define RPI_SPI_LTOH   0x0010
+#define RPI_SPI_DC     0x0014
 
 #endif /* __REGISTER_ADDRESS_H */

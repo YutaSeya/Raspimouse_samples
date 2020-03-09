@@ -74,27 +74,32 @@ void Mcp3204::communication(uint8_t *tx, uint8_t *rx, uint8_t length)
 
   // set TA(transfer active)
   access->setBit(RPI_SPI_CS, 1 << 7);
-  
-  for(int i = 0; i < length; i++){
-    // maybe wait for txd
-    while(!(access->readBit(RPI_SPI_CS,1 << 18) >> 18) & 0x01);
-    // write to FIFO, no barrier
-    access->writeReg(RPI_SPI_FIFO, tx[i]);
 
-    while((access->readBit(RPI_SPI_CS,1 << 17) >> 17) & 0x01);
+  int16_t tx_count = 0;
+  int16_t rx_count = 0;
+  
+  while((tx_count < length) || (rx_count < length)){
+    // maybe wait for txd
+    while(((access->readBit(RPI_SPI_CS,1 << 18) >> 18) & 0x01) && (tx_count < length)){
+      // write to FIFO, no barrier
+      access->writeReg(RPI_SPI_FIFO, tx[tx_count]);
+      tx_count++;
+    };
+    
+
+    while(((access->readBit(RPI_SPI_CS,1 << 17) >> 17) & 0x01) && (rx_count < length)){
+      rx[rx_count] = access->readByte(RPI_SPI_FIFO);
+      rx_count++;
+    };
+    
 
     // wait for done to be set
     while(!(access->readBit(RPI_SPI_CS,1 << 16) >> 16 )& 0x01);
-
-    rx[i] = access->readByte(RPI_SPI_FIFO);
     
   }
 
-
-
   // clear TA(transfer active)
   access->clearBit(RPI_SPI_CS, 1 << 7);
-
   access->closePeriperal();
 
 }

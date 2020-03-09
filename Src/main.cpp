@@ -9,7 +9,7 @@
 void led_test();
 void sw_test();
 
-void mcp3204_test(uint8_t val)
+void mcp3204_test()
 {
   Mem_Access *access = Mem_Access::getInstance();
 
@@ -56,13 +56,46 @@ void mcp3204_test(uint8_t val)
   while(!((access->readBit(RPI_SPI_CS,1 << 18) >> 18) & 0x01));
 
   // write to FIFO, no barrier
-  uint32_t write_data = val;
+  uint32_t write_data = 0x06;
   access->writeReg(RPI_SPI_FIFO, write_data);
 
   // wait for done to be set
   while(!((access->readBit(RPI_SPI_CS,1 << 16) >> 16) & 0x01));
 
   uint32_t ret = access->readByte(RPI_SPI_FIFO);
+
+  printf("ret = %d\r\n", ret);
+
+  // spi clear tx and rx fifos
+  access->setBit(RPI_SPI_CS, 1 << 4);
+  access->setBit(RPI_SPI_CS, 1 << 5);
+
+  // maybe wait for txd
+  while(!((access->readBit(RPI_SPI_CS,1 << 18) >> 18) & 0x01));
+
+  // write to FIFO, no barrier
+  write_data = 0x00;
+  access->writeReg(RPI_SPI_FIFO, write_data);
+
+  // wait for done to be set
+  while(!((access->readBit(RPI_SPI_CS,1 << 16) >> 16) & 0x01));
+
+  ret = access->readByte(RPI_SPI_FIFO);
+
+  printf("ret = %d\r\n", ret);
+
+  // spi clear tx and rx fifos
+  access->setBit(RPI_SPI_CS, 1 << 4);
+  access->setBit(RPI_SPI_CS, 1 << 5);
+
+  // write to FIFO, no barrier
+  write_data = 0x00;
+  access->writeReg(RPI_SPI_FIFO, write_data);
+
+  // wait for done to be set
+  while(!((access->readBit(RPI_SPI_CS,1 << 16) >> 16) & 0x01));
+
+  ret = access->readByte(RPI_SPI_FIFO);
 
   printf("ret = %d\r\n", ret);
 
@@ -77,9 +110,7 @@ int main()
 {
   //led_test();
   //sw_test();
-  mcp3204_test(0x06);
-  mcp3204_test(0x00);
-  mcp3204_test(0x00);
+  mcp3204_test();
   return 0;
 }
 

@@ -74,25 +74,26 @@ void Mcp3204::communication(uint8_t *tx, uint8_t *rx, uint8_t length)
 
   // set TA(transfer active)
   access->setBit(RPI_SPI_CS, 1 << 7);
-  int32_t txcnt = 0;
-  int32_t rxcnt = 0;
   
-  while( (txcnt < length) || (rxcnt < length)){
+  for(int i = 0; i < length; i++){
     // maybe wait for txd
-    while(((access->readBit(RPI_SPI_CS,1 << 18) >> 18) & 0x01) && (txcnt < length)){
-      // write to FIFO, no barrier
-      access->writeReg(RPI_SPI_FIFO, tx[txcnt]);
-      txcnt++;
-    }
+    while(!(access->readBit(RPI_SPI_CS,1 << 18) >> 18) & 0x01);
+    // write to FIFO, no barrier
+    access->writeReg(RPI_SPI_FIFO, tx[i]);
 
-    while(((access->readBit(RPI_SPI_CS,1 << 17) >> 17) & 0x01) && (rxcnt < length)){
-      rx[rxcnt] = access->readByte(RPI_SPI_FIFO);
-      rxcnt++;
-    }
+    while((access->readBit(RPI_SPI_CS,1 << 17) >> 17) & 0x01);
+
+    // wait for done to be set
+    while(!(access->readBit(RPI_SPI_CS,1 << 16) >> 16 )& 0x01);
+
+    // read from fifo to prevent stalling
+    while((access->readBit(RPI_SPI_CS,1 << 17) >> 17) & 0x01);
+
+    rx[i] = access->readByte(RPI_SPI_FIFO);
+    
   }
 
-  // wait for done to be set
-  while(!(access->readBit(RPI_SPI_CS,1 << 16) >> 16 )& 0x01);
+
 
   // clear TA(transfer active)
   access->clearBit(RPI_SPI_CS, 1 << 7);

@@ -82,7 +82,9 @@ uint8_t Mcp3204::communication(uint8_t val)
   access->writeReg(RPI_SPI_FIFO, val);
 
   // wait for done to be set
-  while(!((access->readBit(RPI_SPI_CS,1 << 16) >> 16) & 0x01));
+  while(1){
+    printf("%d\r",(access->readBit(RPI_SPI_CS,1 << 16) >> 16 )& 0x01);
+  }
 
   uint8_t ret = (uint8_t)access->readByte(RPI_SPI_FIFO);
 

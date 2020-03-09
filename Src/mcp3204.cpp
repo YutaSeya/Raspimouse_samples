@@ -86,9 +86,6 @@ void Mcp3204::communication(uint8_t *tx, uint8_t *rx, uint8_t length)
     // wait for done to be set
     while(!(access->readBit(RPI_SPI_CS,1 << 16) >> 16 )& 0x01);
 
-    // read from fifo to prevent stalling
-    while((access->readBit(RPI_SPI_CS,1 << 17) >> 17) & 0x01);
-
     rx[i] = access->readByte(RPI_SPI_FIFO);
     
   }

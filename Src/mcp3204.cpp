@@ -32,9 +32,9 @@ void Mcp3204::init()
   // set GPIO9 to MISO 
   access->setBit(RPI_GPIO_GPFSEL0, 1 << 29);
   // set GPIO10 to MOSI
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 3);
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 2);
   // set GPIO11 to SCLK
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 6);
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 5);
   // set GPIO8 to SPI's CS Pin
   access->setBit(RPI_GPIO_GPFSEL0, 1 << 26);
   // close pheripheral

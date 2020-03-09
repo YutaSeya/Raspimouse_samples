@@ -54,7 +54,7 @@ public:
   */
   static Mcp3204* getInstance();
 
-  uint8_t communication(uint8_t val);
+  void communication(uint8_t *tx, uint8_t *rx, uint8_t length);
 };
 
 #endif /* __MCP3204_H */

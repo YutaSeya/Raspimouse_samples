@@ -59,7 +59,7 @@ void Mcp3204::init()
 
 }
 
-uint8_t Mcp3204::communication(uint8_t val)
+void Mcp3204::communication(uint8_t *tx, uint8_t *rx, uint8_t length)
 {
 
   // SPI Setting
@@ -74,22 +74,29 @@ uint8_t Mcp3204::communication(uint8_t val)
 
   // set TA(transfer active)
   access->setBit(RPI_SPI_CS, 1 << 7);
+  int32_t txcnt = 0;
+  int32_t rxcnt = 0;
+  
+  while( (txcnt < length) || (rxcnt < length)){
+    // maybe wait for txd
+    while(((access->readBit(RPI_SPI_CS,1 << 18) >> 18) & 0x01) && (txcnt < length)){
+      // write to FIFO, no barrier
+      access->writeReg(RPI_SPI_FIFO, tx[txcnt]);
+      txcnt++;
+    }
 
-  // maybe wait for txd
-  while(!((access->readBit(RPI_SPI_CS,1 << 18) >> 18) & 0x01));
-
-  // write to FIFO, no barrier
-  access->writeReg(RPI_SPI_FIFO, val);
+    while(((access->readBit(RPI_SPI_CS,1 << 17) >> 17) & 0x01) && (rxcnt < length)){
+      rx[rxcnt] = access->readByte(RPI_SPI_FIFO);
+      rxcnt++;
+    }
+  }
 
   // wait for done to be set
   while(!(access->readBit(RPI_SPI_CS,1 << 16) >> 16 )& 0x01);
-
-  uint8_t ret = (uint8_t)access->readByte(RPI_SPI_FIFO);
 
   // clear TA(transfer active)
   access->clearBit(RPI_SPI_CS, 1 << 7);
 
   access->closePeriperal();
 
-  return ret;
 }

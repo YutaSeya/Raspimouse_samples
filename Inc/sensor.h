@@ -69,12 +69,6 @@ private:
   */ 
   void init();
 
-  /**
-   * @brief 
-   *  sensor led off.
-  */ 
-  void turnOffSensorLED();
-
 public:
 
   /**
@@ -136,6 +130,12 @@ public:
   * @details
   */
   Sensor_Data get(uint8_t select);
+
+  /**
+   * @brief 
+   *  sensor led off.
+  */ 
+  void turnOffSensorLED();
 
 };
 

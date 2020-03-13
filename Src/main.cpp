@@ -44,6 +44,8 @@ void sensor_test()
     if(count > 120) break;
   }
 
+  sensor->turnOffSensorLED();
+
 }
 
 int main()

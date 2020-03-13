@@ -18,6 +18,7 @@ void sensor_test()
   int16_t sensor_value[5];
   std::printf("ctr + c exit this program\n");
   std::printf("left_front, left, right, right_front, front\n");
+  int count = 0;
 
   while(1){
     sensor->update();
@@ -38,6 +39,9 @@ void sensor_test()
 
     std::printf("%4d, %4d, %4d, %4d, %4d\n", sensor_value[0],
     sensor_value[1],sensor_value[2],sensor_value[3],sensor_value[4] );
+    count++;
+    sleep(1);
+    if(count > 120) break;
   }
 
 }

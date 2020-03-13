@@ -11,11 +11,6 @@
 
 #include "mem_access.h"
 
-#include <fcntl.h>
-#include <sys/ioctl.h>
-#include <linux/types.h>
-#include <linux/spi/spidev.h>
-
 /**
  * @class Mcp3204
  * @brief 
@@ -30,12 +25,21 @@ private:
   /// class instance, intialize nullptr
   static Mcp3204 *instance;
 
+  /// spi File descriptor
+  int fd;
+  // spi communication bits
+  uint8_t bits = 8;
+  // spi communication speed
+  uint32_t speed = 1000000;
 
   /**
    * @brief 
    *  
   */ 
   void init();
+
+  /// MCP32X packet size
+  #define MCP320X_PACKET_SIZE 3
 
 public:
   
@@ -56,6 +60,8 @@ public:
    *  if instance is nullptr, new create instance and return pointer.
   */
   static Mcp3204* getInstance();
+
+  void communication(uint8_t *tx, uint8_t *rx, uint8_t length);
 
 };
 

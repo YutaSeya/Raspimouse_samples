@@ -52,19 +52,19 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>This class is get mcp3204 AD convert data by SPI(Serial Peripheral Interface).  
+<p>get mcp3204 AD convert data by SPI(Serial Peripheral Interface).  
  <a href="class_mcp3204.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="mcp3204_8h_source.html">mcp3204.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a1468cc922b94a00580f5ed1497027805"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mcp3204.html#a1468cc922b94a00580f5ed1497027805">SENSOR_NUMBER</a> { <a class="el" href="class_mcp3204.html#a1468cc922b94a00580f5ed1497027805a5a9ccb1d71009e32dd445753b39e9e9c">SENSOR_LEFT</a>, 
-<a class="el" href="class_mcp3204.html#a1468cc922b94a00580f5ed1497027805a6b9c648b16d398d19b08fab7b707b64f">SENSOR_LEFT_FRONT</a>, 
-<a class="el" href="class_mcp3204.html#a1468cc922b94a00580f5ed1497027805a460c5f24bf60f94e6713db9ca82a2b09">SENSOR_RIGHT_FRONT</a>, 
-<a class="el" href="class_mcp3204.html#a1468cc922b94a00580f5ed1497027805a5f38f450642abb2809b9c92aeac4887e">SENSOR_RIGHT</a>
+<tr class="memitem:a4d81e7c7a568e2c5b1edbe0429ca302d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mcp3204.html#a4d81e7c7a568e2c5b1edbe0429ca302d">Sensor_Number</a> { <a class="el" href="class_mcp3204.html#a4d81e7c7a568e2c5b1edbe0429ca302da5a9ccb1d71009e32dd445753b39e9e9c">SENSOR_LEFT</a>, 
+<a class="el" href="class_mcp3204.html#a4d81e7c7a568e2c5b1edbe0429ca302da6b9c648b16d398d19b08fab7b707b64f">SENSOR_LEFT_FRONT</a>, 
+<a class="el" href="class_mcp3204.html#a4d81e7c7a568e2c5b1edbe0429ca302da460c5f24bf60f94e6713db9ca82a2b09">SENSOR_RIGHT_FRONT</a>, 
+<a class="el" href="class_mcp3204.html#a4d81e7c7a568e2c5b1edbe0429ca302da5f38f450642abb2809b9c92aeac4887e">SENSOR_RIGHT</a>
  }</td></tr>
-<tr class="separator:a1468cc922b94a00580f5ed1497027805"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a4d81e7c7a568e2c5b1edbe0429ca302d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -88,6 +88,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:ab6cb4e4058d49d76739c453fed4e3a0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mcp3204.html#ab6cb4e4058d49d76739c453fed4e3a0e">init</a> ()</td></tr>
+<tr class="memdesc:ab6cb4e4058d49d76739c453fed4e3a0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialize SPI configration.  <a href="class_mcp3204.html#ab6cb4e4058d49d76739c453fed4e3a0e">More...</a><br /></td></tr>
 <tr class="separator:ab6cb4e4058d49d76739c453fed4e3a0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -103,40 +104,46 @@ Private Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:a449872c1eac7f95177e9b072096bb751"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_mcp3204.html">Mcp3204</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mcp3204.html#a449872c1eac7f95177e9b072096bb751">instance</a> = nullptr</td></tr>
-<tr class="memdesc:a449872c1eac7f95177e9b072096bb751"><td class="mdescLeft">&#160;</td><td class="mdescRight">class instance, intialize nullptr  <a href="class_mcp3204.html#a449872c1eac7f95177e9b072096bb751">More...</a><br /></td></tr>
+<tr class="memdesc:a449872c1eac7f95177e9b072096bb751"><td class="mdescLeft">&#160;</td><td class="mdescRight">class instance, initialize nullptr  <a href="class_mcp3204.html#a449872c1eac7f95177e9b072096bb751">More...</a><br /></td></tr>
 <tr class="separator:a449872c1eac7f95177e9b072096bb751"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class is get mcp3204 AD convert data by SPI(Serial Peripheral Interface). </p>
+<div class="textblock"><p>get mcp3204 AD convert data by SPI(Serial Peripheral Interface). </p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadCenter">MISO </th><th class="markdownTableHeadCenter">MOSI </th><th class="markdownTableHeadCenter">SCLK </th><th class="markdownTableHeadCenter">CS  </th></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyCenter">GPIO9 </td><td class="markdownTableBodyCenter">GPIO10 </td><td class="markdownTableBodyCenter">GPIO11 </td><td class="markdownTableBodyCenter">GPIO8  </td></tr>
 </table>
+<p>MCP3204 ch table. </p><table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">L_F </th><th class="markdownTableHeadCenter">LEFT </th><th class="markdownTableHeadCenter">RIGHT </th><th class="markdownTableHeadCenter">R_F  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">CH1 </td><td class="markdownTableBodyCenter">CH0 </td><td class="markdownTableBodyCenter">CH3 </td><td class="markdownTableBodyCenter">CH2  </td></tr>
+</table>
 
-<p class="definition">Definition at line <a class="el" href="mcp3204_8h_source.html#l00022">22</a> of file <a class="el" href="mcp3204_8h_source.html">mcp3204.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mcp3204_8h_source.html#l00026">26</a> of file <a class="el" href="mcp3204_8h_source.html">mcp3204.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="a1468cc922b94a00580f5ed1497027805"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1468cc922b94a00580f5ed1497027805">&#9670;&nbsp;</a></span>SENSOR_NUMBER</h2>
+<a id="a4d81e7c7a568e2c5b1edbe0429ca302d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d81e7c7a568e2c5b1edbe0429ca302d">&#9670;&nbsp;</a></span>Sensor_Number</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="class_mcp3204.html#a1468cc922b94a00580f5ed1497027805">Mcp3204::SENSOR_NUMBER</a></td>
+          <td class="memname">enum <a class="el" href="class_mcp3204.html#a4d81e7c7a568e2c5b1edbe0429ca302d">Mcp3204::Sensor_Number</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>use function getAD param </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a1468cc922b94a00580f5ed1497027805a5a9ccb1d71009e32dd445753b39e9e9c"></a>SENSOR_LEFT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a1468cc922b94a00580f5ed1497027805a6b9c648b16d398d19b08fab7b707b64f"></a>SENSOR_LEFT_FRONT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a1468cc922b94a00580f5ed1497027805a460c5f24bf60f94e6713db9ca82a2b09"></a>SENSOR_RIGHT_FRONT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a1468cc922b94a00580f5ed1497027805a5f38f450642abb2809b9c92aeac4887e"></a>SENSOR_RIGHT&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4d81e7c7a568e2c5b1edbe0429ca302da5a9ccb1d71009e32dd445753b39e9e9c"></a>SENSOR_LEFT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4d81e7c7a568e2c5b1edbe0429ca302da6b9c648b16d398d19b08fab7b707b64f"></a>SENSOR_LEFT_FRONT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4d81e7c7a568e2c5b1edbe0429ca302da460c5f24bf60f94e6713db9ca82a2b09"></a>SENSOR_RIGHT_FRONT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4d81e7c7a568e2c5b1edbe0429ca302da5f38f450642abb2809b9c92aeac4887e"></a>SENSOR_RIGHT&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="mcp3204_8h_source.html#l00065">65</a> of file <a class="el" href="mcp3204_8h_source.html">mcp3204.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mcp3204_8h_source.html#l00069">69</a> of file <a class="el" href="mcp3204_8h_source.html">mcp3204.h</a>.</p>
 
 </div>
 </div>
@@ -247,10 +254,11 @@ Static Private Attributes</h2></td></tr>
 <p>get MCP3204 A/D convert data </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sensor_number</td><td>SENSOR_NUMBER</td></tr>
+    <tr><td class="paramname">sensor_number</td><td>SENSOR_NUMBER </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A/D Convert Data</dd></dl>
 <p>Get the value of the port specified in the argument. </p>
 
 <p class="definition">Definition at line <a class="el" href="mcp3204_8cpp_source.html#l00084">84</a> of file <a class="el" href="mcp3204_8cpp_source.html">mcp3204.cpp</a>.</p>
@@ -311,6 +319,8 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>initialize SPI configration. </p>
+
 <p class="definition">Definition at line <a class="el" href="mcp3204_8cpp_source.html#l00035">35</a> of file <a class="el" href="mcp3204_8cpp_source.html">mcp3204.cpp</a>.</p>
 
 </div>
@@ -336,7 +346,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mcp3204_8h_source.html#l00031">31</a> of file <a class="el" href="mcp3204_8h_source.html">mcp3204.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mcp3204_8h_source.html#l00035">35</a> of file <a class="el" href="mcp3204_8h_source.html">mcp3204.h</a>.</p>
 
 </div>
 </div>
@@ -362,7 +372,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>spi File descriptor </p>
 
-<p class="definition">Definition at line <a class="el" href="mcp3204_8h_source.html#l00029">29</a> of file <a class="el" href="mcp3204_8h_source.html">mcp3204.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mcp3204_8h_source.html#l00033">33</a> of file <a class="el" href="mcp3204_8h_source.html">mcp3204.h</a>.</p>
 
 </div>
 </div>
@@ -386,9 +396,9 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>class instance, intialize nullptr </p>
+<p>class instance, initialize nullptr </p>
 
-<p class="definition">Definition at line <a class="el" href="mcp3204_8h_source.html#l00026">26</a> of file <a class="el" href="mcp3204_8h_source.html">mcp3204.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mcp3204_8h_source.html#l00030">30</a> of file <a class="el" href="mcp3204_8h_source.html">mcp3204.h</a>.</p>
 
 </div>
 </div>
@@ -412,7 +422,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mcp3204_8h_source.html#l00033">33</a> of file <a class="el" href="mcp3204_8h_source.html">mcp3204.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mcp3204_8h_source.html#l00037">37</a> of file <a class="el" href="mcp3204_8h_source.html">mcp3204.h</a>.</p>
 
 </div>
 </div>

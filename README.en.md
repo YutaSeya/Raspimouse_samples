@@ -1,4 +1,4 @@
-# raspimouse
+# Raspimouse_samples
 
 [English](README.en.md) | [日本語](README.md)
 
@@ -44,14 +44,14 @@ $ sudo apt install build-essential
 ```
 $ cd ~
 $ mkdir workspace && cd workspace
-$ git clone https://github.com/YutaSeya/raspimouse
+$ git clone https://github.com/YutaSeya/Raspimouse_samples/
 ```
 The Second line, we create the workspece directory if you need it.
 
 3. Build this program.
 The following commamd.
 ```
-$ cd raspimouse
+$ cd Raspimouse_samples/
 $ make all
 ```
 
@@ -81,7 +81,7 @@ This repository structure is as follows.
 
 Now, I update this repository. So this repository sturcture may change from time to time. I hope you will understand this.
 
-Document is [this pages](./doc/html/index.html).
+Document is /doc/html/index.html. It can see with a web browser
 
 ## About LICENSE
 

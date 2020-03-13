@@ -1,4 +1,4 @@
-# raspimouse
+# Raspimouse_samples
 
 [English](README.en.md) | [日本語](README.md)
 
@@ -42,14 +42,14 @@ $ sudo apt install build-essential
 ```
 $ cd ~
 $ mkdir workspace && cd workspace
-$ git clone https://github.com/YutaSeya/raspimouse
+$ git clone https://github.com/YutaSeya/Raspimouse_samples/
 ```
 2行目のディレクトリの作成は各自の判断で行っていただければと思います。
 
 3. このリポジトリのビルドを行います。
 
 ```
-$ cd raspimouse
+$ cd Raspimouse_samples/
 $ make all
 ```
 
@@ -78,7 +78,7 @@ sudo make run
 
 現在、ソフトウェアを随時更新しているためIncやSrc直下のディレクトリ構造等は随時変化する可能性があります。ご了承ください。
 
-ドキュメントは[こちら](./doc/html/index.html)です。
+ドキュメントはこのリポジトリの/doc/html/index.htmlにあります。webブラウザで開いていただければ回覧することができます。
 
 ## ライセンスについて
 このリポジトリはGPLv3ライセンスで公開されています。詳細は[LICENSE](https://github.com/YutaSeya/raspimouse/blob/master/LICENSE)を確認してください。

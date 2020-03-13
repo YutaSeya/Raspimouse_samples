@@ -40,7 +40,7 @@ private:
   uint32_t now_periperal_length = 0;
   /// use errror check 
   int8_t error = 0;
-  /// class instance, intialize nullptr
+  /// class instance, initialize nullptr
   static Mem_Access *instance;
   
   /**

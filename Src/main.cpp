@@ -32,9 +32,13 @@ void mcp3204_test()
 
 int main()
 {
-  //led_test();
-  //sw_test();
-  mcp3204_test();
+  #if SW_TEST
+    sw_test();
+  #elif MCP_TEST
+    mcp3204_test();
+  #else 
+    led_test();
+  #endif
   
   return 0;
 }

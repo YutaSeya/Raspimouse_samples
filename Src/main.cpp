@@ -37,7 +37,7 @@ void sensor_test()
     sensor_value[4] = sensor_data.now;
 
     std::printf("%4d, %4d, %4d, %4d, %4d\n", sensor_value[0],
-    sensor_value[1],sensor_value[2],sensor_value[3],sensor_value[4], )
+    sensor_value[1],sensor_value[2],sensor_value[3],sensor_value[4] );
   }
 
 }

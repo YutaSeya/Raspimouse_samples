@@ -96,6 +96,5 @@ uint16_t Mcp3204::getAD(uint8_t sensor_number)
   uint16_t ret = 0;
   ret = (rx_buff[1] & 0x0f) << 8;
   ret|= rx_buff[2];
-  printf("rx1 %d, rx2 %d, ret %d\n", rx_buff[1], rx_buff[2], ret);
   return ret;
 }

@@ -21,7 +21,10 @@ void mcp3204_test()
   {
     uint16_t ad_data[4];
     ad_data[0] = mcp3204->getAD(Mcp3204::SENSOR0);
-    std::printf("%d\r\n",ad_data[0]);
+    ad_data[1] = mcp3204->getAD(Mcp3204::SENSOR1);
+    ad_data[2] = mcp3204->getAD(Mcp3204::SENSOR2);
+    ad_data[3] = mcp3204->getAD(Mcp3204::SENSOR3);
+    std::printf("%d,%d,%d,%d\r",ad_data[0], ad_data[1], ad_data[2], ad_data[3]);
   }
 
 }

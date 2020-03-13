@@ -69,6 +69,11 @@ private:
   */ 
   void init();
 
+  /**
+   * @brief 
+   *  sensor led off.
+  */ 
+  void turnOffSensorLED();
 
 public:
 

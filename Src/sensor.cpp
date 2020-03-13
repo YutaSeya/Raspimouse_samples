@@ -15,6 +15,7 @@ Sensor::Sensor()
 
 Sensor::~Sensor()
 {
+  turnOffSensorLED();
   delete instance;
 }
 
@@ -46,6 +47,25 @@ void Sensor::init()
 
   access->closePeriperal();
   _mtx.unlock();
+}
+
+void Sensor::turnOffSensorLED()
+{
+  // led off
+  _mtx.lock();
+  // wait busy flag down
+  while( access->checkBusy() );
+
+  access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
+
+  // clear pin
+  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 17);
+  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 4);
+  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 22);
+  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 27);
+
+  access->closePeriperal();
+  _mtx.unlock(); 
 }
 
 void Sensor::setSensorParam(uint8_t select, int16_t _threshold, int16_t _referense)

@@ -8,27 +8,7 @@
 
 void led_test();
 void sw_test();
-
-void mcp3204_test()
-{
-
-  Mcp3204 *mcp3204 = Mcp3204::getInstance();
-  
-  std::printf("ctr + c exit this program\n");
-  std::printf("left_front, left, right, right_fornt\n");
-
-  while(1)
-  {
-    uint16_t ad_data[4];
-    ad_data[0] = mcp3204->getAD(Mcp3204::SENSOR_LEFT_FRONT);
-    ad_data[1] = mcp3204->getAD(Mcp3204::SENSOR_LEFT);
-    ad_data[2] = mcp3204->getAD(Mcp3204::SENSOR_RIGHT);
-    ad_data[3] = mcp3204->getAD(Mcp3204::SENSOR_RIGHT_FRONT);
-    std::printf("%4d,%4d,%4d,%4d\r\n",ad_data[0], ad_data[1], ad_data[2], ad_data[3]);
-    sleep(1);
-  }
-
-}
+void mcp3204_test();
 
 int main()
 {
@@ -65,4 +45,25 @@ void sw_test()
     std::printf("sw0 : %d, sw1 : %d, sw2 : %d, all : %d\r", sw->get0(), sw->get1(), sw->get2(), sw->getAll() );
   }
   
+}
+
+void mcp3204_test()
+{
+
+  Mcp3204 *mcp3204 = Mcp3204::getInstance();
+  
+  std::printf("ctr + c exit this program\n");
+  std::printf("left_front, left, right, right_fornt\n");
+
+  while(1)
+  {
+    uint16_t ad_data[4];
+    ad_data[0] = mcp3204->getAD(Mcp3204::SENSOR_LEFT_FRONT);
+    ad_data[1] = mcp3204->getAD(Mcp3204::SENSOR_LEFT);
+    ad_data[2] = mcp3204->getAD(Mcp3204::SENSOR_RIGHT);
+    ad_data[3] = mcp3204->getAD(Mcp3204::SENSOR_RIGHT_FRONT);
+    std::printf("%4d,%4d,%4d,%4d\r\n",ad_data[0], ad_data[1], ad_data[2], ad_data[3]);
+    sleep(1);
+  }
+
 }

@@ -5,21 +5,55 @@
 #include "led.h"
 #include "switch.h"
 #include "mcp3204.h"
+#include "sensor.h"
 
 void led_test();
 void sw_test();
 void mcp3204_test();
 
+void sensor_test()
+{
+  Sensor *sensor = Sensor::getInstance();
+  Sensor_Data sensor_data;
+  int16_t sensor_value[5];
+  std::printf("ctr + c exit this program\n");
+  std::printf("left_front, left, right, right_front, front\n");
+  int count = 0;
+
+  while(1){
+    sensor->update();
+    sensor_data = sensor->get(Sensor::LEFT_FRONT);
+    sensor_value[0] = sensor_data.now;
+
+    sensor_data = sensor->get(Sensor::LEFT);
+    sensor_value[1] = sensor_data.now;
+
+    sensor_data = sensor->get(Sensor::RIGHT);
+    sensor_value[2] = sensor_data.now;
+
+    sensor_data = sensor->get(Sensor::RIGHT_FRONT);
+    sensor_value[3] = sensor_data.now;
+
+    sensor_data = sensor->get(Sensor::FRONT);
+    sensor_value[4] = sensor_data.now;
+
+    std::printf("%4d, %4d, %4d, %4d, %4d\n", sensor_value[0],
+    sensor_value[1],sensor_value[2],sensor_value[3],sensor_value[4] );
+    count++;
+    sleep(1);
+    if(count > 120) break;
+  }
+
+  sensor->turnOffSensorLED();
+
+}
+
 int main()
 {
-  #if SW_TEST
-    sw_test();
-  #elif MCP_TEST
-    mcp3204_test();
-  #else 
-    led_test();
-  #endif
-  
+  //led_test();
+  //sw_test();
+  //mcp3204_test();
+  sensor_test();
   return 0;
 }
 

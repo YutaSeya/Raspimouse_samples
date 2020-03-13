@@ -14,15 +14,19 @@
 /**
  * @class Mcp3204
  * @brief 
- *  This class is get mcp3204 AD convert data by SPI(Serial Peripheral Interface).
+ *  get mcp3204 AD convert data by SPI(Serial Peripheral Interface).
  * | MISO   | MOSI   | SCLK   | CS     | 
  * | :----: | :----: | :----: | :----: |
  * | GPIO9  | GPIO10 | GPIO11 | GPIO8  |
+ * MCP3204 ch table.
+ * |  L_F    |  LEFT   |  RIGHT  |  R_F    | 
+ * | :-----: | :-----: | :-----: | :-----: |
+ * |  CH1    |  CH0    |  CH3    |  CH2    |
 */ 
 class Mcp3204
 {
 private:
-  /// class instance, intialize nullptr
+  /// class instance, initialize nullptr
   static Mcp3204 *instance;
 
   /// spi File descriptor
@@ -34,7 +38,7 @@ private:
 
   /**
    * @brief 
-   *  
+   *  initialize SPI configration.
   */ 
   void init();
 
@@ -59,10 +63,10 @@ public:
   static Mcp3204* getInstance();
 
   /**
-  * @enum SENSOR_NUMBER
+  * @enum Sensor_Number
   * use function getAD param 
   */
-  enum SENSOR_NUMBER{
+  enum Sensor_Number{
     SENSOR_LEFT,
     SENSOR_LEFT_FRONT,
     SENSOR_RIGHT_FRONT,
@@ -83,6 +87,7 @@ public:
    * @brief 
    *  get MCP3204 A/D convert data
    * @param sensor_number SENSOR_NUMBER 
+   * @return A/D Convert Data
    * @details
    *  Get the value of the port specified 
    *  in the argument.

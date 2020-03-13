@@ -25,9 +25,9 @@
 class Led
 {
 private:
-  /// class instance, intialize nullptr
+  /// class instance, initialize nullptr
   static Led *instance;
-  /// Mem_Access class instance, intialize nullptr
+  /// Mem_Access class instance, initialize nullptr
   Mem_Access *access = nullptr;
 
   /**

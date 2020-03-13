@@ -38,8 +38,15 @@ private:
   */ 
   void init();
 
-  /// MCP32X packet size
-  #define MCP320X_PACKET_SIZE 3
+  /**
+   * @brief 
+   *  communication SPI
+   * @param *tx send data
+   * @param *rx read data
+   * @param length send/read data length
+   * @details
+   */ 
+  void communication(uint8_t *tx, uint8_t *rx, uint8_t length);
 
 public:
   
@@ -61,7 +68,18 @@ public:
   */
   static Mcp3204* getInstance();
 
-  void communication(uint8_t *tx, uint8_t *rx, uint8_t length);
+  /**
+  * @enum SENSOR_NUMBER
+  * use function getAD param 
+  */
+  enum SENSOR_NUMBER{
+    SENSOR0,
+    SENSOR1,
+    SENSOR2,
+    SENSOR3
+  };
+
+  uint16_t getAD(uint8_t sensor_number);
 
 };
 

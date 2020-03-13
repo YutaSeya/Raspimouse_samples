@@ -80,3 +80,19 @@ void Mcp3204::communication(uint8_t *tx, uint8_t *rx, uint8_t length)
 
   _mtx.unlock();
 }
+
+uint16_t Mcp3204::getAD(uint8_t sensor_number)
+{
+  uint8_t tx_buff[3];
+  uint8_t rx_buff[3];
+
+  // set send data
+  tx_buff[0] = (0x06 | sensor_number >> 2);
+  tx_buff[1] = (sensor_number << 6);
+  tx_buff[2] = 0x00;
+
+  communication(tx_buff, rx_buff, 3);
+
+  uint16_t ret = (rx_buff[1] & 0x0F) << 8 | tx_buff[2];
+  return ret;
+}

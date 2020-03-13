@@ -25,8 +25,6 @@ private:
   /// class instance, intialize nullptr
   static Mcp3204 *instance;
 
-  /// Mem_Access class instance, intialize nullptr
-  Mem_Access *access = nullptr;
 
   /**
    * @brief 
@@ -54,7 +52,6 @@ public:
   */
   static Mcp3204* getInstance();
 
-  void communication(uint8_t *tx, uint8_t *rx, uint8_t length);
 };
 
 #endif /* __MCP3204_H */

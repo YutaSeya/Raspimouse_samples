@@ -13,23 +13,6 @@ void mcp3204_test()
 {
 
   Mcp3204 *mcp3204 = Mcp3204::getInstance();
-
-  uint8_t tx_buffer[3];
-  uint8_t rx_buffer[3];
-
-  tx_buffer[0] = 0x06;
-  tx_buffer[1] = 0;
-  tx_buffer[2] = 0;
-
-  while (1)
-  {
-
-    mcp3204->communication(tx_buffer, rx_buffer, 3);
-
-    printf("rx_buffer 1 : %d, 2: %d\r\n", rx_buffer[1], rx_buffer[2]);
-    
-    sleep(1);
-  }
   
 }
 

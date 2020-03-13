@@ -38,16 +38,6 @@ private:
   */ 
   void init();
 
-  /**
-   * @brief 
-   *  communication SPI
-   * @param *tx send data
-   * @param *rx read data
-   * @param length send/read data length
-   * @details
-   */ 
-  void communication(uint8_t *tx, uint8_t *rx, uint8_t length);
-
 public:
   
   /**
@@ -78,6 +68,16 @@ public:
     SENSOR2,
     SENSOR3
   };
+
+/**
+   * @brief 
+   *  communication SPI
+   * @param *tx send data
+   * @param *rx read data
+   * @param length send/read data length
+   * @details
+   */ 
+  void communication(uint8_t *tx, uint8_t *rx, uint8_t length);
 
   uint16_t getAD(uint8_t sensor_number);
 

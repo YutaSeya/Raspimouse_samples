@@ -13,22 +13,21 @@ void mcp3204_test()
 {
 
   Mcp3204 *mcp3204 = Mcp3204::getInstance();
-  uint8_t tx_buffer[3];
-  uint8_t rx_buffer[3];
+  
+  std::printf("ctr + c exit this program\n");
+  std::printf("ad0, ad1, ad2, ad3\n");
 
-  tx_buffer[0] = 0x06;
-  tx_buffer[1] = 0;
-  tx_buffer[2] = 0;
-
-  while (1)
+  while(1)
   {
-
-    mcp3204->communication(tx_buffer, rx_buffer, 3);
-
-    printf("rx_buffer 1 : %d, 2: %d\r\n", rx_buffer[1], rx_buffer[2]);
-    
-    sleep(1);
+    uint16_t ad_data[4];
+    ad_data[0] = mcp3204->getAD(Mcp3204::SENSOR0);
+    ad_data[1] = mcp3204->getAD(Mcp3204::SENSOR1);
+    ad_data[2] = mcp3204->getAD(Mcp3204::SENSOR2);
+    ad_data[3] = mcp3204->getAD(Mcp3204::SENSOR3);
+    std::printf("%d,%d,%d,%d\r",
+    ad_data[0], ad_data[1], ad_data[2], ad_data[3]);
   }
+
 }
 
 int main()

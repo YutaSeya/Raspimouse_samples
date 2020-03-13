@@ -93,6 +93,6 @@ uint16_t Mcp3204::getAD(uint8_t sensor_number)
 
   communication(tx_buff, rx_buff, 3);
 
-  uint16_t ret = (rx_buff[1] & 0x0F) << 8 | tx_buff[2];
+  uint16_t ret = (rx_buff[1] & 0x0F) * 256 + tx_buff[2];
   return ret;
 }

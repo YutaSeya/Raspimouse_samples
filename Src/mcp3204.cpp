@@ -87,14 +87,15 @@ uint16_t Mcp3204::getAD(uint8_t sensor_number)
   uint8_t rx_buff[3];
 
   // set send data
-  tx_buff[0] = 0x06;
-  tx_buff[1] = 0x00;
+  tx_buff[0] = (0x06 | (sensor_number >> 2));
+  tx_buff[1] = (sensor_number << 6);
   tx_buff[2] = 0x00;
 
   communication(tx_buff, rx_buff, 3);
 
-  printf("rx1 %d, rx2 %d\n", rx_buff[1], rx_buff[2]);
-
-  uint16_t ret = (rx_buff[1] & 0x0F) * 256 + tx_buff[2];
+  uint16_t ret = 0;
+  ret = (rx_buff[1] & 0x0f) << 8;
+  ret|= rx_buff[2];
+  printf("rx1 %d, rx2 %d, ret %d\n", rx_buff[1], rx_buff[2], ret);
   return ret;
 }

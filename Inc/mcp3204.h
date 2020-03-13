@@ -11,6 +11,11 @@
 
 #include "mem_access.h"
 
+#include <fcntl.h>
+#include <sys/ioctl.h>
+#include <linux/types.h>
+#include <linux/spi/spidev.h>
+
 /**
  * @class Mcp3204
  * @brief 

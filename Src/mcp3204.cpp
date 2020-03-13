@@ -40,7 +40,7 @@ void Mcp3204::init()
   
   if(fd < 0){
     while(1){
-      printf("Do not oepn spi device driver");
+      printf("Do not oepn spi device driver\r");
     }
   }
 
@@ -87,7 +87,7 @@ uint16_t Mcp3204::getAD(uint8_t sensor_number)
   uint8_t rx_buff[3];
 
   // set send data
-  tx_buff[0] = (0x06 | sensor_number >> 2);
+  tx_buff[0] = (0x06 | (sensor_number >> 2));
   tx_buff[1] = (sensor_number << 6);
   tx_buff[2] = 0x00;
 

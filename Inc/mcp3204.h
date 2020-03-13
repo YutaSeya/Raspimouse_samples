@@ -63,13 +63,13 @@ public:
   * use function getAD param 
   */
   enum SENSOR_NUMBER{
-    SENSOR0,
-    SENSOR1,
-    SENSOR2,
-    SENSOR3
+    SENSOR_LEFT,
+    SENSOR_LEFT_FRONT,
+    SENSOR_RIGHT_FRONT,
+    SENSOR_RIGHT,
   };
 
-/**
+  /**
    * @brief 
    *  communication SPI
    * @param *tx send data
@@ -79,6 +79,14 @@ public:
    */ 
   void communication(uint8_t *tx, uint8_t *rx, uint8_t length);
 
+  /**
+   * @brief 
+   *  get MCP3204 A/D convert data
+   * @param sensor_number SENSOR_NUMBER 
+   * @details
+   *  Get the value of the port specified 
+   *  in the argument.
+   */ 
   uint16_t getAD(uint8_t sensor_number);
 
 };

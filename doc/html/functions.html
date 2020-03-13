@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>raspimouse: Class Members</title>
+<title>raspimouse sample: Class Members</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">raspimouse
+   <div id="projectname">raspimouse sample
    </div>
    <div id="projectbrief">version 0.1</div>
   </td>
@@ -53,6 +53,9 @@ $(function() {
 
 
 <h3><a id="index_b"></a>- b -</h3><ul>
+<li>bits
+: <a class="el" href="class_mcp3204.html#af0c3308ded073a52519ffeeb87fa5b3c">Mcp3204</a>
+</li>
 <li>busy
 : <a class="el" href="class_mem___access.html#a7af9a3d0238d8c0eedd3430303a2adac">Mem_Access</a>
 </li>
@@ -63,11 +66,17 @@ $(function() {
 <li>checkBusy()
 : <a class="el" href="class_mem___access.html#afb5c866c285aeb1b3a0c73d339fd32b2">Mem_Access</a>
 </li>
+<li>clearBit()
+: <a class="el" href="class_mem___access.html#a66196914511399367f912c2788623c24">Mem_Access</a>
+</li>
 <li>closeMEM()
 : <a class="el" href="class_mem___access.html#aab23e9b574686221913ab8b2f0728b9f">Mem_Access</a>
 </li>
 <li>closePeriperal()
 : <a class="el" href="class_mem___access.html#a2c9dfd1e4c82692f6892600824fd5100">Mem_Access</a>
+</li>
+<li>communication()
+: <a class="el" href="class_mcp3204.html#a98a6993a17f1a8f72e3a61e9f3d84cda">Mcp3204</a>
 </li>
 </ul>
 
@@ -81,7 +90,8 @@ $(function() {
 
 <h3><a id="index_f"></a>- f -</h3><ul>
 <li>fd
-: <a class="el" href="class_mem___access.html#aef983314c8feeb7459185b3c35bb142c">Mem_Access</a>
+: <a class="el" href="class_mcp3204.html#a8cdec711c323d35a4b8b7191b758e607">Mcp3204</a>
+, <a class="el" href="class_mem___access.html#aef983314c8feeb7459185b3c35bb142c">Mem_Access</a>
 </li>
 </ul>
 
@@ -96,6 +106,9 @@ $(function() {
 <li>get2()
 : <a class="el" href="class_switch.html#aa46871801a61450bada350d44aad7306">Switch</a>
 </li>
+<li>getAD()
+: <a class="el" href="class_mcp3204.html#a01921d9c329506ea74a5af3e1b4787a1">Mcp3204</a>
+</li>
 <li>getAddress()
 : <a class="el" href="class_mem___access.html#a299a066ea9712535192d158ea88d1245">Mem_Access</a>
 </li>
@@ -104,6 +117,7 @@ $(function() {
 </li>
 <li>getInstance()
 : <a class="el" href="class_led.html#ab7c85469a3885c9ec891daca461f3a16">Led</a>
+, <a class="el" href="class_mcp3204.html#a51ea0fcd3ab98dbc60d8362a55581d68">Mcp3204</a>
 , <a class="el" href="class_mem___access.html#a669f288f029ab789548f96a6d4ecb090">Mem_Access</a>
 , <a class="el" href="class_switch.html#abce5045b4db4c333420575a832b2674c">Switch</a>
 </li>
@@ -116,10 +130,12 @@ $(function() {
 </li>
 <li>init()
 : <a class="el" href="class_led.html#aee2f1eea3cfe7182b61455079c758bf6">Led</a>
+, <a class="el" href="class_mcp3204.html#ab6cb4e4058d49d76739c453fed4e3a0e">Mcp3204</a>
 , <a class="el" href="class_switch.html#aa7219d0c60520e9534a427564311a40b">Switch</a>
 </li>
 <li>instance
 : <a class="el" href="class_led.html#a4975f55519ceac280b9bdab853436739">Led</a>
+, <a class="el" href="class_mcp3204.html#a449872c1eac7f95177e9b072096bb751">Mcp3204</a>
 , <a class="el" href="class_mem___access.html#a0ca154f5f65fbbec1fef3d57d4ddbdc9">Mem_Access</a>
 , <a class="el" href="class_switch.html#a3992e544fa757fb1ffa7da726a3219bd">Switch</a>
 </li>
@@ -134,6 +150,9 @@ $(function() {
 
 
 <h3><a id="index_m"></a>- m -</h3><ul>
+<li>Mcp3204()
+: <a class="el" href="class_mcp3204.html#afa41b5972a92508a2265f65ad87d3904">Mcp3204</a>
+</li>
 <li>Mem_Access()
 : <a class="el" href="class_mem___access.html#aa50af95695b87e8eb547c5716280dd2f">Mem_Access</a>
 </li>
@@ -168,8 +187,26 @@ $(function() {
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
+<li>SENSOR_LEFT
+: <a class="el" href="class_mcp3204.html#a1468cc922b94a00580f5ed1497027805a5a9ccb1d71009e32dd445753b39e9e9c">Mcp3204</a>
+</li>
+<li>SENSOR_LEFT_FRONT
+: <a class="el" href="class_mcp3204.html#a1468cc922b94a00580f5ed1497027805a6b9c648b16d398d19b08fab7b707b64f">Mcp3204</a>
+</li>
+<li>SENSOR_NUMBER
+: <a class="el" href="class_mcp3204.html#a1468cc922b94a00580f5ed1497027805">Mcp3204</a>
+</li>
+<li>SENSOR_RIGHT
+: <a class="el" href="class_mcp3204.html#a1468cc922b94a00580f5ed1497027805a5f38f450642abb2809b9c92aeac4887e">Mcp3204</a>
+</li>
+<li>SENSOR_RIGHT_FRONT
+: <a class="el" href="class_mcp3204.html#a1468cc922b94a00580f5ed1497027805a460c5f24bf60f94e6713db9ca82a2b09">Mcp3204</a>
+</li>
 <li>setBit()
 : <a class="el" href="class_mem___access.html#a9a7d38b4cd1cc9d12d641aa55bb915fc">Mem_Access</a>
+</li>
+<li>speed
+: <a class="el" href="class_mcp3204.html#a8235c30c58fbc74060c4eb24920d8913">Mcp3204</a>
 </li>
 <li>Switch()
 : <a class="el" href="class_switch.html#a54db96db46113c6a4904553796d183ce">Switch</a>
@@ -187,6 +224,9 @@ $(function() {
 <h3><a id="index__7E"></a>- ~ -</h3><ul>
 <li>~Led()
 : <a class="el" href="class_led.html#a9685f23dc5ca68091579ab621c44753a">Led</a>
+</li>
+<li>~Mcp3204()
+: <a class="el" href="class_mcp3204.html#a6ed676106ce14c2db4a9f7f86d8d1f0c">Mcp3204</a>
 </li>
 <li>~Mem_Access()
 : <a class="el" href="class_mem___access.html#a2de1a9c0db13115dcbb26a91fd97e8b8">Mem_Access</a>

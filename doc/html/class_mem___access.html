@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>raspimouse: Mem_Access Class Reference</title>
+<title>raspimouse sample: Mem_Access Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">raspimouse
+   <div id="projectname">raspimouse sample
    </div>
    <div id="projectbrief">version 0.1</div>
   </td>
@@ -74,6 +74,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9a7d38b4cd1cc9d12d641aa55bb915fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#a9a7d38b4cd1cc9d12d641aa55bb915fc">setBit</a> (uint32_t reg_offset, uint32_t bit)</td></tr>
 <tr class="memdesc:a9a7d38b4cd1cc9d12d641aa55bb915fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">set bit by reg_offset.  <a href="class_mem___access.html#a9a7d38b4cd1cc9d12d641aa55bb915fc">More...</a><br /></td></tr>
 <tr class="separator:a9a7d38b4cd1cc9d12d641aa55bb915fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66196914511399367f912c2788623c24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#a66196914511399367f912c2788623c24">clearBit</a> (uint32_t reg_offset, uint32_t bit)</td></tr>
+<tr class="memdesc:a66196914511399367f912c2788623c24"><td class="mdescLeft">&#160;</td><td class="mdescRight">clear bit by reg_offset.  <a href="class_mem___access.html#a66196914511399367f912c2788623c24">More...</a><br /></td></tr>
+<tr class="separator:a66196914511399367f912c2788623c24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a287410f0e766e089d4532ec95f90279d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mem___access.html#a287410f0e766e089d4532ec95f90279d">writeReg</a> (uint32_t reg_offset, uint32_t val)</td></tr>
 <tr class="memdesc:a287410f0e766e089d4532ec95f90279d"><td class="mdescLeft">&#160;</td><td class="mdescRight">write byte by reg_offset.  <a href="class_mem___access.html#a287410f0e766e089d4532ec95f90279d">More...</a><br /></td></tr>
 <tr class="separator:a287410f0e766e089d4532ec95f90279d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -206,7 +209,47 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mem__access_8h_source.html#l00158">158</a> of file <a class="el" href="mem__access_8h_source.html">mem_access.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mem__access_8h_source.html#l00167">167</a> of file <a class="el" href="mem__access_8h_source.html">mem_access.h</a>.</p>
+
+</div>
+</div>
+<a id="a66196914511399367f912c2788623c24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66196914511399367f912c2788623c24">&#9670;&nbsp;</a></span>clearBit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mem_Access::clearBit </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>reg_offset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>bit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>clear bit by reg_offset. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reg_offset</td><td>set offset device address </td></tr>
+    <tr><td class="paramname">bit</td><td>set bit data</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Use exsample, clear GPIO4 Pin clearBit(RPI_GPIO_OUTPUT_SET_0, 1 &lt;&lt; 4) </p>
+
+<p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00115">115</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
 
 </div>
 </div>
@@ -482,7 +525,7 @@ Static Private Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t bit data</dd></dl>
 <p>Use exsample, read GPIO4 Pin readBit(RPI_GPIO_OUTPUT_SET_0, 1 &lt;&lt; 4); if you want to read in binary, you need to add a bit shift. sample: (readBit(RPI_GPIO_OUTPUT_SET_0, 1 &lt;&lt; 4) &gt;&gt; 4); </p>
 
-<p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00120">120</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00125">125</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
 
 </div>
 </div>
@@ -512,7 +555,7 @@ Static Private Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t read byte data</dd></dl>
 <p>Use exsample, read input pin register readByte(RPI_GPIO_OUTPUT_SET_0) </p>
 
-<p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00125">125</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00130">130</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
 
 </div>
 </div>
@@ -592,7 +635,7 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <p>Use exsample, Set GPIO3 and GPIO4 writeReg(RPI_GPIO_OUTPUT_SET_0, 0x0007) </p>
 
-<p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00115">115</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mem__access_8cpp_source.html#l00120">120</a> of file <a class="el" href="mem__access_8cpp_source.html">mem_access.cpp</a>.</p>
 
 </div>
 </div>

@@ -14,10 +14,10 @@ void sensor_test();
 
 int main()
 {
-  led_test();
+  //led_test();
   //sw_test();
   //mcp3204_test();
-  //sensor_test();
+  sensor_test();
   return 0;
 }
 

@@ -41,9 +41,25 @@
 #define RPI_PWM_SIZE 0xC0
 #define RPI_PWM_BASE (RPI_REG_BASE + RPI_PWM_OFFSET)
 
+/* PWM Index */
+#define RPI_PWM_CTRL 0x0
+#define RPI_PWM_STA 0x4
+#define RPI_PWM_DMAC 0x8
+#define RPI_PWM_RNG1 0x10
+#define RPI_PWM_DAT1 0x14
+#define RPI_PWM_FIF1 0x18
+#define RPI_PWM_RNG2 0x20
+#define RPI_PWM_DAT2 0x24
+
+#define PWM_BASECLK 9600000
+
 /* Clock Addr */
 #define RPI_CLK_OFFSET 0x101000
 #define RPI_CLK_SIZE 0x100
 #define RPI_CLK_BASE (RPI_REG_BASE + RPI_CLK_OFFSET)
+
+/* Clock Offset */
+#define CLK_PWM_INDEX 0xa0
+#define CLK_PWMDIV_INDEX 0xa4
 
 #endif /* __REGISTER_ADDRESS_H */

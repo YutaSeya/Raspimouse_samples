@@ -2,6 +2,9 @@
 #include <cstdio>
 #include <unistd.h>
 
+#include "register_address.h"
+#include "mem_access.h"
+
 #include "led.h"
 #include "switch.h"
 #include "mcp3204.h"
@@ -15,6 +18,23 @@ void sensor_test();
 
 void pwm_test()
 {
+  // motor enable pin setting
+  Mem_Access *access = Mem_Access::getInstance();
+
+  _mtx.lock();
+  while(access->checkBusy());
+
+  access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
+
+  access->setBit(RPI_GPIO_GPFSEL0, 1 << 15);
+
+  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
+
+  access->closePeriperal();
+
+  _mtx.unlock();
+
+  // use pwm 
   Pwm *pwm = Pwm::getInstance();
 
   pwm->set(100, 100);

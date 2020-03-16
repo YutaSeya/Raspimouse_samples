@@ -37,7 +37,7 @@ void pwm_test()
   // use pwm 
   Pwm *pwm = Pwm::getInstance();
 
-  pwm->set(100, 100);
+  pwm->set(1000, 1000);
 
   sleep(3);
 

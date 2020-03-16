@@ -6,18 +6,31 @@
 #include "switch.h"
 #include "mcp3204.h"
 #include "sensor.h"
+#include "pypwm.h"
 
 void led_test();
 void sw_test();
 void mcp3204_test();
 void sensor_test();
 
+void pwm_test()
+{
+  Pwm *pwm = Pwm::getInstance();
+
+  pwm->set(100, 100);
+
+  sleep(3);
+
+  pwm->set(0, 0);
+}
+
 int main()
 {
   //led_test();
   //sw_test();
   //mcp3204_test();
-  sensor_test();
+  //sensor_test();
+  pwm_test();
   return 0;
 }
 

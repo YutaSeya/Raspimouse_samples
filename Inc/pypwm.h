@@ -19,7 +19,7 @@
  * GPIO PIN Correspondence Table.
  * | PWM0   | PWM1   |
  * | :----: | :----: |
- * | GPIO40 | GPIO45 |
+ * | GPIO12 | GPIO13 |
 */ 
 class Pwm
 {
@@ -34,6 +34,8 @@ private:
    *  initialize GPIO Pin settings.
   */ 
   void init();
+
+  int getPWMCount(uint32_t freq);
 
 public:
   
@@ -55,7 +57,12 @@ public:
   */
   static Pwm* getInstance();
 
-  
+  void set1(uint32_t freq);
+
+  void set2(uint32_t freq);
+
+  void set(uint32_t ch1_freq, uint32_t ch2_freq);
+
 };
 
 #endif /* __PYPWM_H */

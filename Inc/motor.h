@@ -37,17 +37,10 @@ private:
   */ 
   void init();
 
-  /**
-   * @brief 
-   *  set GPIO mode ALT(use PWM) or GPIO output mode.
-  */ 
-  void controlPWMOutput(bool left, bool right);
+  void controlLeft(int freq);
 
-  /**
-   * @brief 
-   *  motor dir pin turn on/off
-  */ 
-  void controlDirection(bool left, bool right);
+  void controlRight(int freq);
+
   
 public:
   

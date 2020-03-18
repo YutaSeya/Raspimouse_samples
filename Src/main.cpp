@@ -62,16 +62,18 @@ void motor_test()
 
   access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
 
-  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
+  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 16);
 
   access->closePeriperal();
 
   _mtx.unlock();
 
+  std::printf("set 1 -100, set2 -100\n");
+
   pwm->set(100, 100);
 
   sleep(3);
-  
+
   pwm->set(0,0);
 }
 

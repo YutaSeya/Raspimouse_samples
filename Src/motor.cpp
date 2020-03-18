@@ -103,7 +103,7 @@ int Motor::controlLeft(int freq)
   }
 
   if(freq < 0){
-    left = -1 * freq;
+    left = -freq;
     access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 16);
   } else {
     left = freq;
@@ -139,7 +139,7 @@ int Motor::controlRight(int freq)
   }
 
   if(freq < 0){
-    right = -1 * freq;
+    right = -freq;
     access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
   } else {
     right = freq;

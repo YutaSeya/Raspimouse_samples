@@ -82,7 +82,7 @@ void Motor::disable()
 void Motor::controlLeft(int freq)
 {
 
-  uint32_t left = 0;
+  int32_t left = 0;
   _mtx.lock();
   // wait busy flag down
   while( access->checkBusy() );
@@ -117,7 +117,7 @@ void Motor::controlLeft(int freq)
 
 void Motor::controlRight(int freq)
 {
-  uint32_t right = 0;
+  int32_t right = 0;
   _mtx.lock();
   // wait busy flag down
   while( access->checkBusy() );

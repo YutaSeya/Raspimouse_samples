@@ -27,6 +27,10 @@ void motor_test()
 
   sleep(3);
 
+  motor->control(0, 0);
+
+  sleep(1);
+
   printf("left 1000 right 1000\n");
   motor->control(1000, 1000);
 

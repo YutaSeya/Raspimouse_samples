@@ -172,7 +172,9 @@ void Motor::control(int left, int right)
   uint32_t left_buff = left;
   uint32_t right_buff = right;
 
-  printf("%d, %d\n", left_buff, right_buff);
+  std::printf("%d, %d\n", left_buff, right_buff);
+  std::printf("%d, %d\n", left_dir, right_dir);
+  std::printf("%d, %d\n", left_control, right_control);
 
   controlDirection(left_dir, right_dir);
 

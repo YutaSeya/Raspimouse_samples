@@ -103,11 +103,12 @@ int Motor::controlLeft(int freq)
   }
 
   if(freq < 0){
-    printf("call left\n");
+    std::printf("call right -freq\n");
     left = -freq;
     access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 16);
   } else {
     left = freq;
+    std::printf("call left +freq\n");
     access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 16);
   } 
 
@@ -140,10 +141,11 @@ int Motor::controlRight(int freq)
   }
 
   if(freq < 0){
-    printf("call right\n");
+    std::printf("call right -freq\n");
     right = -freq;
     access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
   } else {
+    std::printf("call right +freq\n");
     right = freq;
     access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
   } 

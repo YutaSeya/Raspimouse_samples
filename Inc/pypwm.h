@@ -17,10 +17,9 @@
  *  Control pwm parameter.
  * @details
  * GPIO PIN Correspondence Table.
- * | PWM0    | PWM1    | PWM1   |
- * | :----:  | :----:  | :----: | 
- * | GPIO12  | GPIO13  | GPIO19 |
- * | Motor_L | Motor_R | Buzzer |
+ * | PWM0   | PWM1   |
+ * | :----: | :----: |
+ * | GPIO12 | GPIO13 |
 */ 
 class Pwm
 {

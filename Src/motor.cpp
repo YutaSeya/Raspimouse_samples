@@ -123,9 +123,9 @@ void Motor::controlDirection(bool left, bool right)
   access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
 
   if(left){
-    access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 16);
-  } else {
     access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 16);
+  } else {
+    access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 16);
   }
   
 

@@ -39,9 +39,6 @@ void Pwm::init()
   // set gpio pin 13
   access->setBit(RPI_GPIO_GPFSEL1, 1 << 11);
 
-  // set gpio 19 ALT5
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 28);
-
   access->closePeriperal();
 
   // setting clk 

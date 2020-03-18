@@ -143,6 +143,7 @@ void Pwm::set(uint32_t ch1_freq, uint32_t ch2_freq)
 
 void Pwm::enableMotor()
 {
+  _mtx.lock();
   // wait busy flag down
   while( access->checkBusy() );
 
@@ -155,6 +156,16 @@ void Pwm::enableMotor()
   access->setBit(RPI_GPIO_GPFSEL1, 1 << 11);
 
   access->closePeriperal();
+
+  // start pwm setting
+  access->openPeriperal(RPI_PWM_BASE);
+
+  // pwm enable ch1, ch2
+  access->writeReg(RPI_PWM_CTRL, 0x00008181);
+  
+  access->closePeriperal();
+
+  _mtx.unlock();
 
 }
 

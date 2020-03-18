@@ -93,6 +93,7 @@ void Motor::controlLeft(int freq)
     access->clearBit(RPI_GPIO_GPFSEL1, 1 << 8);
     access->setBit(RPI_GPIO_GPFSEL1, 1 << 6);
 
+    access->closePeriperal();
     return;
   } else {
     // set gpio pin 12 ALT0
@@ -128,6 +129,7 @@ void Motor::controlRight(int freq)
     access->clearBit(RPI_GPIO_GPFSEL1, 1 << 11);
     access->setBit(RPI_GPIO_GPFSEL1, 1 << 9);
 
+    access->closePeriperal();
     return;
   } else {
     // set gpio pin 13 ALT0

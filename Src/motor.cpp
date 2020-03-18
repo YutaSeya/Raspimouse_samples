@@ -146,28 +146,24 @@ void Motor::control(int left, int right)
   bool left_dir = false;
   bool right_dir = false;
 
-  bool left_control = false;
-  bool right_control = false;
+  bool left_control = true;
+  bool right_control = true;
 
   if(left == 0){
     left_control = false;
   } else if(left < 0){  
-    left_control = true;
     left_dir = false;
     left = -1 * left;
   } else {
-    left_control = true;
     left_dir = true;
   }
 
   if(right == 0){
     right_control = false;
   } else if(right < 0){
-    right_control = true;
     right_dir = false;
     right = -1 * right;
   } else {
-    right_control = true;
     right_dir = true;
   }
 

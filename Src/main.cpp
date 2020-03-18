@@ -22,10 +22,12 @@ void motor_test()
 
   motor->enable();
 
+  printf("left 1000 right 1000\n");
   motor->control(1000, 1000);
 
   sleep(3);
 
+  printf("left -1000 right -1000\n");
   motor->control(-1000, -1000);
 
   sleep(3);

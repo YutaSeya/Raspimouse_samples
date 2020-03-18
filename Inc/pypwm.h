@@ -64,10 +64,6 @@ public:
 
   void set(uint32_t ch1_freq, uint32_t ch2_freq);
 
-  void disableMotor();
-
-  void enableMotor();
-
 };
 
 #endif /* __PYPWM_H */

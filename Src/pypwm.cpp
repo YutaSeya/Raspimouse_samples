@@ -71,7 +71,6 @@ void Pwm::init()
 
   _mtx.unlock();
 
-  disableMotor();
 }
 
 int Pwm::getPWMCount(uint32_t freq)
@@ -136,53 +135,6 @@ void Pwm::set(uint32_t ch1_freq, uint32_t ch2_freq)
   access->writeReg(RPI_PWM_RNG2, ch2_dat);
   access->writeReg(RPI_PWM_DAT2, ch2_dat >> 1);
   
-  access->closePeriperal();
-
-  _mtx.unlock();
-}
-
-void Pwm::enableMotor()
-{
-  _mtx.lock();
-  // wait busy flag down
-  while( access->checkBusy() );
-
-  access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
-
-  // set gpio ALT0
-  // set gpio pin 12
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 8);
-  // set gpio pin 13
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 11);
-
-  access->closePeriperal();
-
-  // start pwm setting
-  access->openPeriperal(RPI_PWM_BASE);
-
-  // pwm enable ch1, ch2
-  access->writeReg(RPI_PWM_CTRL, 0x00008181);
-  
-  access->closePeriperal();
-
-  _mtx.unlock();
-
-}
-
-void Pwm::disableMotor()
-{
-  _mtx.lock();
-  // wait busy flag down
-  while( access->checkBusy() );
-
-  access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
-
-  // set gpio GPIO OUT PUT
-  // set gpio pin 12
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 6);
-  // set gpio pin 13
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 9);
-
   access->closePeriperal();
 
   _mtx.unlock();

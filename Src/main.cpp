@@ -36,6 +36,8 @@ void pwm_test()
 
   Pwm *pwm = Pwm::getInstance();
 
+  pwm->enableMotor();
+
   std::printf("pwm setting done.\n");
   std::printf("set 1 100, set2 100\n");
   pwm->set(100, 100);

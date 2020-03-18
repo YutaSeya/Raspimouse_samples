@@ -112,8 +112,7 @@ int Motor::controlLeft(int freq)
   access->closePeriperal();
   _mtx.unlock();
 
-  pwm->set1(left);
-  return 1;
+  return left;
 }
 
 int Motor::controlRight(int freq)
@@ -148,12 +147,13 @@ int Motor::controlRight(int freq)
   access->closePeriperal();
   _mtx.unlock();
 
-  pwm->set2(right);
-  return 1;
+  return right;
 }
 
 void Motor::control(int left, int right)
 {
-  controlLeft(left);
-  controlRight(right);
+  int left_buff = 0, right_buff = 0;
+  left_buff = controlLeft(left);
+  right_buff =  controlRight(right);
+  pwm->set(left_buff, right_buff);
 }

@@ -14,7 +14,6 @@ Pwm::Pwm()
 
 Pwm::~Pwm()
 {
-  disableMotor();
   delete instance;
 }
 

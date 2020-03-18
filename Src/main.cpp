@@ -46,7 +46,7 @@ void pwm_test()
 
   pwm->set(0,0);
 
-
+  pwm->disableMotor();
 }
 
 int main()

@@ -36,10 +36,12 @@ void pwm_test()
 
   Pwm *pwm = Pwm::getInstance();
 
+  std::printf("pwm setting done.\n");
+  std::printf("set 1 100\n");
   pwm->set1(100);
 
   sleep(3);
-
+  std::printf("set 2 100\n");
   pwm->set2(100);
 
   sleep(3);

@@ -35,15 +35,15 @@ void Pwm::init()
 
   // set gpio ALT0
   // set gpio pin 12
-  //access->setBit(RPI_GPIO_GPFSEL1, 1 << 8);
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 8);
   // set gpio pin 13
-  //access->setBit(RPI_GPIO_GPFSEL1, 1 << 11);
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 11);
 
   // set gpio 19 pwm output
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 28);
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 27);
 
-  // set gpio 18 pwm output
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 25);
+  // set gpio 18 gpio output
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 24);
 
   access->closePeriperal();
 
@@ -51,12 +51,9 @@ void Pwm::init()
   access->openPeriperal(RPI_CLK_BASE);
   
   // stop pwm clock
-  access->writeReg(CLK_PWM_INDEX, (BCM2835_PWM_PASSWRD | 0x01));
+  access->writeReg(CLK_PWM_INDEX, (BCM2835_PWM_PASSWRD | 1 << 5));
 
   // wait clock down
-  sleep(1);
-  // wait for the clock to be not busy
-  while((access->readBit(CLK_PWM_INDEX, 1 << 7) >> 7) & 0x01);
   sleep(1);
 
   // clk set

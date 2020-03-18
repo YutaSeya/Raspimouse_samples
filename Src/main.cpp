@@ -35,6 +35,14 @@ void motor_test()
   // GPIO13 set alt 0 
   access->setBit(RPI_GPIO_GPFSEL1, 1 << 11);
 
+  // GPIO6 output
+  access->setBit(RPI_GPIO_GPFSEL0, 1 << 18);
+  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
+
+  // GPIO16 output 
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 18);
+  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 16);
+
   access->closePeriperal();
 
   _mtx.unlock();
@@ -47,6 +55,23 @@ void motor_test()
 
   sleep(3);
 
+  _mtx.lock();
+  while(access->checkBusy());
+
+  access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
+
+  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
+
+  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
+
+  access->closePeriperal();
+
+  _mtx.unlock();
+
+  pwm->set(100, 100);
+
+  sleep(3);
+  
   pwm->set(0,0);
 }
 

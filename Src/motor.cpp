@@ -94,6 +94,7 @@ int Motor::controlLeft(int freq)
     access->setBit(RPI_GPIO_GPFSEL1, 1 << 6);
 
     access->closePeriperal();
+    _mtx.unlock();
     return 0;
   } else {
     // set gpio pin 12 ALT0
@@ -129,6 +130,7 @@ int Motor::controlRight(int freq)
     access->setBit(RPI_GPIO_GPFSEL1, 1 << 9);
 
     access->closePeriperal();
+    _mtx.unlock();
     return 0;
   } else {
     // set gpio pin 13 ALT0

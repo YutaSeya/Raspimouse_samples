@@ -34,14 +34,20 @@ void pwm_test()
 
   _mtx.unlock();
 
-  // use pwm 
   Pwm *pwm = Pwm::getInstance();
 
-  pwm->set(1000, 1000);
+  pwm->set1(100);
 
   sleep(3);
 
-  pwm->set(0, 0);
+  pwm->set2(100);
+
+  sleep(3);
+
+  pwm->set1(0);
+
+  pwm->set2(0);
+
 }
 
 int main()

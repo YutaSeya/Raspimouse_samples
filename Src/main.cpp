@@ -30,12 +30,6 @@ void pwm_test()
 
   access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
 
-  // set gpio ALT0
-  // set gpio pin 12
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 8);
-  // set gpio pin 13
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 11);
-
   access->closePeriperal();
 
   _mtx.unlock();

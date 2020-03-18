@@ -58,8 +58,6 @@
 #define RPI_CLK_SIZE 0x100
 #define RPI_CLK_BASE (RPI_REG_BASE + RPI_CLK_OFFSET)
 
-#define BCM2835_PWM_PASSWRD (0x5A << 24)
-
 /* Clock Offset */
 #define CLK_PWM_INDEX 0xA0
 #define CLK_PWMDIV_INDEX 0xA4

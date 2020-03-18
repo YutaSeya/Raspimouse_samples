@@ -51,14 +51,14 @@ void Pwm::init()
   access->openPeriperal(RPI_CLK_BASE);
   
   // stop pwm clock
-  access->writeReg(CLK_PWM_INDEX, (BCM2835_PWM_PASSWRD | 1 << 5));
+  access->writeReg(CLK_PWM_INDEX, 0x5a000000 | (1 << 5));
 
   // wait clock down
   sleep(1);
 
   // clk set
-  access->writeReg(CLK_PWMDIV_INDEX, (BCM2835_PWM_PASSWRD | (2 << 12)) );
-  access->writeReg(CLK_PWM_INDEX, (BCM2835_PWM_PASSWRD | 0x03));
+  access->writeReg(CLK_PWMDIV_INDEX, 0x5a000000 | (2 << 12) );
+  access->writeReg(CLK_PWM_INDEX, 0x5a000011);
 
   sleep(1);
   

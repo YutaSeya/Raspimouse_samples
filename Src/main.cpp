@@ -9,7 +9,7 @@
 #include "switch.h"
 #include "mcp3204.h"
 #include "sensor.h"
-#include "motor.h"
+#include "pipwm.h"
 
 void led_test();
 void sw_test();
@@ -18,26 +18,38 @@ void sensor_test();
 
 void motor_test()
 {
-  Motor *motor = Motor::getInstance();
+  // motor enable pin setting
+  Mem_Access *access = Mem_Access::getInstance();
 
-  motor->enable();
+  _mtx.lock();
+  while(access->checkBusy());
 
-  printf("left -1000 right -1000\n");
-  motor->control(-1000, -1000);
+  access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
+
+  access->setBit(RPI_GPIO_GPFSEL0, 1 << 15);
+
+  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
+
+  // GPIO12 set alt 0 
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 8);
+  // GPIO13 set alt 0 
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 11);
+
+  access->closePeriperal();
+
+  _mtx.unlock();
+
+  Pwm *pwm = Pwm::getInstance();
+
+  pwm->enableMotor();
+
+  std::printf("pwm setting done.\n");
+  std::printf("set 1 100, set2 100\n");
+  pwm->set(100, 100);
 
   sleep(3);
 
-  motor->control(0, 0);
-
-  sleep(1);
-
-  printf("left 1000 right 1000\n");
-  motor->control(1000, 1000);
-
-  sleep(3);
-
-  motor->control(0, 0);
-
+  pwm->set(0,0);
 }
 
 int main()

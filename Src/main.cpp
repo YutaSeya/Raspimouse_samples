@@ -9,44 +9,30 @@
 #include "switch.h"
 #include "mcp3204.h"
 #include "sensor.h"
-#include "pypwm.h"
+#include "motor.h"
 
 void led_test();
 void sw_test();
 void mcp3204_test();
 void sensor_test();
 
-void pwm_test()
+void motor_test()
 {
-  // motor enable pin setting
-  Mem_Access *access = Mem_Access::getInstance();
+  Motor *motor = Motor::getInstance();
 
-  _mtx.lock();
-  while(access->checkBusy());
+  motor->enable();
 
-  access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
-
-  access->setBit(RPI_GPIO_GPFSEL0, 1 << 15);
-
-  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
-
-  access->closePeriperal();
-
-  _mtx.unlock();
-
-  Pwm *pwm = Pwm::getInstance();
-
-  pwm->enableMotor();
-
-  std::printf("pwm setting done.\n");
-  std::printf("set 1 100, set2 100\n");
-  pwm->set(100, 100);
+  motor->control(1000, 1000);
 
   sleep(3);
 
-  pwm->set(0,0);
+  motor->control(-1000, -1000);
 
-  pwm->disableMotor();
+  sleep(3);
+
+  motor->control(0, 0);
+
+  motor->disable();
 }
 
 int main()
@@ -55,7 +41,6 @@ int main()
   //sw_test();
   //mcp3204_test();
   //sensor_test();
-  pwm_test();
   return 0;
 }
 

@@ -1,13 +1,13 @@
 /**
- * @file pwm.h
+ * @file pipwm.h
  * @author Yuta S.
  * @version 0.1
  * @brief 
  * The file defined Pwm class.
 */ 
 
-#ifndef __PYPWM_H
-#define __PYPWM_H
+#ifndef __PIPWM_H
+#define __PIPWM_H
 
 #include "mem_access.h"
 
@@ -32,10 +32,15 @@ private:
 
   /**
    * @brief 
-   *  initialize GPIO Pin settings.
+   *  initialize PWM and CLK register.
   */ 
   void init();
 
+  /**
+   * @brief 
+   *  calculate pwm count. 
+   * @return pwm count
+  */ 
   int getPWMCount(uint32_t freq);
 
 public:
@@ -58,16 +63,28 @@ public:
   */
   static Pwm* getInstance();
 
+  /**
+   * @brief 
+   *  set pwm1 frequency
+   * @param freq set frequency
+  */ 
   void set1(uint32_t freq);
 
+  /**
+   * @brief 
+   *  set pwm2 frequency
+   * @param freq set frequency
+  */ 
   void set2(uint32_t freq);
 
+  /**
+   * @brief 
+   *  set pwm1 , 2 frequency
+   * @param ch1_freq set pwm1 frequency
+   * @param ch2_freq set pwm2 frequency
+  */ 
   void set(uint32_t ch1_freq, uint32_t ch2_freq);
-
-  void disableMotor();
-
-  void enableMotor();
 
 };
 
-#endif /* __PYPWM_H */
+#endif /* __PIPWM_H */

@@ -1,4 +1,4 @@
-#include "pypwm.h"
+#include "pipwm.h"
 
 #include "register_address.h"
 
@@ -27,8 +27,6 @@ Pwm* Pwm::getInstance()
 
 void Pwm::init()
 {
-  disableMotor();
-
   _mtx.lock();
   // wait busy flag down
   while( access->checkBusy() );
@@ -127,47 +125,4 @@ void Pwm::set(uint32_t ch1_freq, uint32_t ch2_freq)
   access->closePeriperal();
 
   _mtx.unlock();
-}
-
-void Pwm::disableMotor()
-{
-  _mtx.lock();
-  // wait busy flag down
-  while( access->checkBusy() );
-  
-  access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
-
-  // set gpio ALT0
-  // set gpio pin 12
-  access->clearBit(RPI_GPIO_GPFSEL1, 1 << 8);
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 6);
-  // set gpio pin 13
-  access->clearBit(RPI_GPIO_GPFSEL1, 1 << 11);
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 9);
-
-  access->closePeriperal();
-
-  _mtx.unlock();
-}
-
-void Pwm::enableMotor()
-{
-  _mtx.lock();
-  // wait busy flag down
-  while( access->checkBusy() );
-  
-  access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
-
-  // set gpio ALT0
-  // set gpio pin 12
-  access->clearBit(RPI_GPIO_GPFSEL1, 1 << 6);
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 8);
-  // set gpio pin 13
-  access->clearBit(RPI_GPIO_GPFSEL1, 1 << 9);
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 11);
-
-  access->closePeriperal();
-
-  _mtx.unlock();
-
 }

@@ -42,6 +42,9 @@ void Pwm::init()
   // set gpio 19 pwm output
   access->setBit(RPI_GPIO_GPFSEL1, 1 << 27);
 
+  // set gpio 18 gpio output
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 24);
+
   access->closePeriperal();
 
   // setting clk 

@@ -2,6 +2,8 @@
 
 #include "register_address.h"
 
+#include <cstdio>
+
 Motor* Motor::instance = nullptr;
 
 Motor::Motor()
@@ -167,10 +169,15 @@ void Motor::control(int left, int right)
     right_dir = true;
   }
 
+  uint32_t left_buff = left;
+  uint32_t right_buff = right;
+
+  printf("%d, %d\n", left_buff, right_buff);
+
   controlDirection(left_dir, right_dir);
 
   controlPWMOutput(left_control, right_control);
 
-  pwm->set(left, right);
+  pwm->set(left_buff, right_buff);
 
 }

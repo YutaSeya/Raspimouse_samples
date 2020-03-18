@@ -37,9 +37,9 @@ private:
   */ 
   void init();
 
-  void controlLeft(int freq);
+  int controlLeft(int freq);
 
-  void controlRight(int freq);
+  int controlRight(int freq);
 
   
 public:

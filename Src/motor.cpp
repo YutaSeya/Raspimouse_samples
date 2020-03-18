@@ -79,7 +79,7 @@ void Motor::disable()
 
 }
 
-void Motor::controlLeft(int freq)
+int Motor::controlLeft(int freq)
 {
 
   int32_t left = 0;
@@ -94,7 +94,7 @@ void Motor::controlLeft(int freq)
     access->setBit(RPI_GPIO_GPFSEL1, 1 << 6);
 
     access->closePeriperal();
-    return;
+    return 0;
   } else {
     // set gpio pin 12 ALT0
     access->clearBit(RPI_GPIO_GPFSEL1, 1 << 6);
@@ -113,10 +113,10 @@ void Motor::controlLeft(int freq)
   _mtx.unlock();
 
   pwm->set1(left);
-
+  return 1;
 }
 
-void Motor::controlRight(int freq)
+int Motor::controlRight(int freq)
 {
   int32_t right = 0;
   _mtx.lock();
@@ -130,7 +130,7 @@ void Motor::controlRight(int freq)
     access->setBit(RPI_GPIO_GPFSEL1, 1 << 9);
 
     access->closePeriperal();
-    return;
+    return 0;
   } else {
     // set gpio pin 13 ALT0
     access->clearBit(RPI_GPIO_GPFSEL1, 1 << 9);
@@ -149,6 +149,7 @@ void Motor::controlRight(int freq)
   _mtx.unlock();
 
   pwm->set2(right);
+  return 1;
 }
 
 void Motor::control(int left, int right)

@@ -38,7 +38,6 @@ void motor_test()
 
   motor->control(0, 0);
 
-  motor->disable();
 }
 
 int main()

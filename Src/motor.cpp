@@ -157,5 +157,6 @@ void Motor::control(int left, int right)
   int left_buff = 0, right_buff = 0;
   left_buff = controlLeft(left);
   right_buff =  controlRight(right);
+  std::printf("left_buff = %d, right_buff = %d\n", left_buff, right_buff);
   pwm->set(left_buff, right_buff);
 }

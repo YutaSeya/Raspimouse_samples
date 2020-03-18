@@ -60,7 +60,7 @@ void Pwm::init()
 
 }
 
-int Pwm::getPWMCount(uint32_t freq)
+int Pwm::getPWMCount(int32_t freq)
 {
   if(freq < 1) return PWM_BASECLK;
   
@@ -69,9 +69,9 @@ int Pwm::getPWMCount(uint32_t freq)
   return PWM_BASECLK / freq;
 }
 
-void Pwm::set1(uint32_t freq)
+void Pwm::set1(int32_t freq)
 {
-  uint32_t dat = getPWMCount(freq);
+  int32_t dat = getPWMCount(freq);
   
   _mtx.lock();
   // wait busy flag down
@@ -87,9 +87,9 @@ void Pwm::set1(uint32_t freq)
   _mtx.unlock();
 }
 
-void Pwm::set2(uint32_t freq)
+void Pwm::set2(int32_t freq)
 {
-  uint32_t dat = getPWMCount(freq);
+  int32_t dat = getPWMCount(freq);
   
   _mtx.lock();
   // wait busy flag down
@@ -105,10 +105,10 @@ void Pwm::set2(uint32_t freq)
   _mtx.unlock();
 }
 
-void Pwm::set(uint32_t ch1_freq, uint32_t ch2_freq)
+void Pwm::set(int32_t ch1_freq, int32_t ch2_freq)
 {
-  uint32_t ch1_dat = getPWMCount(ch1_freq);
-  uint32_t ch2_dat = getPWMCount(ch2_freq);
+  int32_t ch1_dat = getPWMCount(ch1_freq);
+  int32_t ch2_dat = getPWMCount(ch2_freq);
 
   _mtx.lock();
   // wait busy flag down

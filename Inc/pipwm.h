@@ -41,7 +41,7 @@ private:
    *  calculate pwm count. 
    * @return pwm count
   */ 
-  int getPWMCount(uint32_t freq);
+  int getPWMCount(int32_t freq);
 
 public:
   
@@ -68,14 +68,14 @@ public:
    *  set pwm1 frequency
    * @param freq set frequency
   */ 
-  void set1(uint32_t freq);
+  void set1(int32_t freq);
 
   /**
    * @brief 
    *  set pwm2 frequency
    * @param freq set frequency
   */ 
-  void set2(uint32_t freq);
+  void set2(int32_t freq);
 
   /**
    * @brief 
@@ -83,7 +83,7 @@ public:
    * @param ch1_freq set pwm1 frequency
    * @param ch2_freq set pwm2 frequency
   */ 
-  void set(uint32_t ch1_freq, uint32_t ch2_freq);
+  void set(int32_t ch1_freq, int32_t ch2_freq);
 
 };
 

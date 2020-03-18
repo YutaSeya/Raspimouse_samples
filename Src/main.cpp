@@ -1,145 +1,143 @@
-#include <iostream>
-#include <cstdio>
-#include <unistd.h>
-
-#include "register_address.h"
-#include "mem_access.h"
-
-#include "led.h"
-#include "switch.h"
-#include "mcp3204.h"
-#include "sensor.h"
 #include "pypwm.h"
 
-void led_test();
-void sw_test();
-void mcp3204_test();
-void sensor_test();
+#include "register_address.h"
 
-void pwm_test()
+#include <unistd.h>
+
+Pwm* Pwm::instance = nullptr;
+
+Pwm::Pwm()
 {
-  // motor enable pin setting
-  Mem_Access *access = Mem_Access::getInstance();
+  access = Mem_Access::getInstance();
+  init();
+}
 
+Pwm::~Pwm()
+{
+  delete instance;
+}
+
+Pwm* Pwm::getInstance()
+{
+  if(instance == nullptr){
+    instance = new Pwm();
+  }
+  return instance;
+}
+
+void Pwm::init()
+{
   _mtx.lock();
-  while(access->checkBusy());
+  // wait busy flag down
+  while( access->checkBusy() );
 
   access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
 
-  access->setBit(RPI_GPIO_GPFSEL0, 1 << 15);
+  // set gpio ALT0
+  // set gpio pin 12
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 8);
+  // set gpio pin 13
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 11);
 
-  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
+  // set gpio 19 pwm output
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 27);
+
+  // set gpio 18 gpio output
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 24);
 
   access->closePeriperal();
 
+  // setting clk 
+  access->openPeriperal(RPI_CLK_BASE);
+  
+  // stop pwm clock
+  access->writeReg(CLK_PWM_INDEX, 0x5a000000 | (1 << 5));
+
+  // wait clock down
+  sleep(1);
+
+  // clk set
+  access->writeReg(CLK_PWMDIV_INDEX, 0x5a000000 | (2 << 12) );
+  access->writeReg(CLK_PWM_INDEX, 0x5a000011);
+
+  sleep(1);
+  
+  access->closePeriperal();
+
+  // start pwm setting
+  access->openPeriperal(RPI_PWM_BASE);
+
+  // pwm enable ch1, ch2
+  access->writeReg(RPI_PWM_CTRL, 0x00008181);
+  
+  access->closePeriperal();
+
   _mtx.unlock();
-
-  Pwm *pwm = Pwm::getInstance();
-
-  std::printf("pwm setting done.\n");
-  std::printf("set 1 100\n");
-  pwm->set1(1000);
-
-  sleep(3);
-  std::printf("set 2 100\n");
-  pwm->set2(1000);
-
-  sleep(3);
-
-  pwm->set1(0);
-
-  pwm->set2(0);
-
 }
 
-int main()
+int Pwm::getPWMCount(uint32_t freq)
 {
-  //led_test();
-  //sw_test();
-  //mcp3204_test();
-  //sensor_test();
-  pwm_test();
-  return 0;
-}
-
-void led_test()
-{
-  Led *led = Led::getInstance();
-
-  for(int i = 0; i < 16; i++){
-    led->illuminate(i);
-    sleep(1);
-  }
+  if(freq < 1) return PWM_BASECLK;
   
-  led->illuminate(0);
+  if(freq > 10000) return PWM_BASECLK / 10000;
+
+  return PWM_BASECLK / freq;
 }
 
-void sw_test()
+void Pwm::set1(uint32_t freq)
 {
-  Switch *sw = Switch::getInstance();
-
-  std::printf("ctr + c exit this program\n");
-
-  while(1){
-    std::printf("sw0 : %d, sw1 : %d, sw2 : %d, all : %d\r", sw->get0(), sw->get1(), sw->get2(), sw->getAll() );
-  }
+  uint32_t dat = getPWMCount(freq);
   
-}
+  _mtx.lock();
+  // wait busy flag down
+  while( access->checkBusy() );
+  // start pwm setting
+  access->openPeriperal(RPI_PWM_BASE);
 
-void mcp3204_test()
-{
-
-  Mcp3204 *mcp3204 = Mcp3204::getInstance();
+  access->writeReg(RPI_PWM_RNG1, dat);
+  access->writeReg(RPI_PWM_DAT1, dat >> 1);
   
-  std::printf("ctr + c exit this program\n");
-  std::printf("left_front, left, right, right_fornt\n");
+  access->closePeriperal();
 
-  while(1)
-  {
-    uint16_t ad_data[4];
-    ad_data[0] = mcp3204->getAD(Mcp3204::SENSOR_LEFT_FRONT);
-    ad_data[1] = mcp3204->getAD(Mcp3204::SENSOR_LEFT);
-    ad_data[2] = mcp3204->getAD(Mcp3204::SENSOR_RIGHT);
-    ad_data[3] = mcp3204->getAD(Mcp3204::SENSOR_RIGHT_FRONT);
-    std::printf("%4d,%4d,%4d,%4d\r\n",ad_data[0], ad_data[1], ad_data[2], ad_data[3]);
-    sleep(1);
-  }
-
+  _mtx.unlock();
 }
 
-void sensor_test()
+void Pwm::set2(uint32_t freq)
 {
-  Sensor *sensor = Sensor::getInstance();
-  Sensor_Data sensor_data;
-  int16_t sensor_value[5];
-  std::printf("ctr + c exit this program\n");
-  std::printf("left_front, left, right, right_front, front\n");
-  int count = 0;
+  uint32_t dat = getPWMCount(freq);
+  
+  _mtx.lock();
+  // wait busy flag down
+  while( access->checkBusy() );
+  // start pwm setting
+  access->openPeriperal(RPI_PWM_BASE);
 
-  while(1){
-    sensor->update();
-    sensor_data = sensor->get(Sensor::LEFT_FRONT);
-    sensor_value[0] = sensor_data.now;
+  access->writeReg(RPI_PWM_RNG2, dat);
+  access->writeReg(RPI_PWM_DAT2, dat >> 1);
+  
+  access->closePeriperal();
 
-    sensor_data = sensor->get(Sensor::LEFT);
-    sensor_value[1] = sensor_data.now;
+  _mtx.unlock();
+}
 
-    sensor_data = sensor->get(Sensor::RIGHT);
-    sensor_value[2] = sensor_data.now;
+void Pwm::set(uint32_t ch1_freq, uint32_t ch2_freq)
+{
+  uint32_t ch1_dat = getPWMCount(ch1_freq);
+  uint32_t ch2_dat = getPWMCount(ch2_freq);
 
-    sensor_data = sensor->get(Sensor::RIGHT_FRONT);
-    sensor_value[3] = sensor_data.now;
+  _mtx.lock();
+  // wait busy flag down
+  while( access->checkBusy() );
+  // start pwm setting
+  access->openPeriperal(RPI_PWM_BASE);
 
-    sensor_data = sensor->get(Sensor::FRONT);
-    sensor_value[4] = sensor_data.now;
+  access->writeReg(RPI_PWM_RNG1, ch1_dat);
+  access->writeReg(RPI_PWM_DAT1, ch1_dat >> 1);
 
-    std::printf("%4d, %4d, %4d, %4d, %4d\n", sensor_value[0],
-    sensor_value[1],sensor_value[2],sensor_value[3],sensor_value[4] );
-    count++;
-    sleep(1);
-    if(count > 120) break;
-  }
+  access->writeReg(RPI_PWM_RNG2, ch2_dat);
+  access->writeReg(RPI_PWM_DAT2, ch2_dat >> 1);
+  
+  access->closePeriperal();
 
-  sensor->turnOffSensorLED();
-
+  _mtx.unlock();
 }

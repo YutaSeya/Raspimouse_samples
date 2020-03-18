@@ -35,12 +35,15 @@ void Pwm::init()
 
   // set gpio ALT0
   // set gpio pin 12
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 8);
+  //access->setBit(RPI_GPIO_GPFSEL1, 1 << 8);
   // set gpio pin 13
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 11);
+  //access->setBit(RPI_GPIO_GPFSEL1, 1 << 11);
 
-  // set gpio 19 GPIO output
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 27);
+  // set gpio 19 pwm output
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 28);
+
+  // set gpio 18 pwm output
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 25);
 
   access->closePeriperal();
 

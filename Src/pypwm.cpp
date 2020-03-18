@@ -42,9 +42,6 @@ void Pwm::init()
   // set gpio 19 pwm output
   access->setBit(RPI_GPIO_GPFSEL1, 1 << 27);
 
-  // set gpio 18 gpio output
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 24);
-
   access->closePeriperal();
 
   // setting clk 
@@ -73,6 +70,8 @@ void Pwm::init()
   access->closePeriperal();
 
   _mtx.unlock();
+
+  disableMotor();
 }
 
 int Pwm::getPWMCount(uint32_t freq)
@@ -161,6 +160,7 @@ void Pwm::enableMotor()
 
 void Pwm::disableMotor()
 {
+  _mtx.lock();
   // wait busy flag down
   while( access->checkBusy() );
 
@@ -174,4 +174,5 @@ void Pwm::disableMotor()
 
   access->closePeriperal();
 
+  _mtx.unlock();
 }

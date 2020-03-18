@@ -38,11 +38,11 @@ void pwm_test()
 
   std::printf("pwm setting done.\n");
   std::printf("set 1 100\n");
-  pwm->set1(100);
+  pwm->set1(1000);
 
   sleep(3);
   std::printf("set 2 100\n");
-  pwm->set2(100);
+  pwm->set2(1000);
 
   sleep(3);
 

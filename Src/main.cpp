@@ -36,12 +36,12 @@ void motor_test()
   access->setBit(RPI_GPIO_GPFSEL1, 1 << 11);
 
   // GPIO6 output
-  access->setBit(RPI_GPIO_GPFSEL0, 1 << 18);
-  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
+  //access->setBit(RPI_GPIO_GPFSEL0, 1 << 18);
+  //access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
 
   // GPIO16 output 
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 18);
-  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 16);
+  //access->setBit(RPI_GPIO_GPFSEL1, 1 << 18);
+  //access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 16);
 
   access->closePeriperal();
 

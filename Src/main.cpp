@@ -209,7 +209,7 @@ int main()
   //sw_test();
   //mcp3204_test();
   //sensor_test();
-  motor_left_test();
+  //motor_left_test();
   motor_right_test();
   return 0;
 }

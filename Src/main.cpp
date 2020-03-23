@@ -127,8 +127,6 @@ void motor_right_test()
   access->setBit(RPI_GPIO_GPFSEL1, 1 << 11);
 
   // GPIO6 output 
-  access->clearBit(RPI_GPIO_GPFSEL0, 1 << 19);
-  access->clearBit(RPI_GPIO_GPFSEL0, 1 << 20);
   access->setBit(RPI_GPIO_GPFSEL0, 1 << 18);
 
   // setting dir bit
@@ -162,7 +160,8 @@ void motor_right_test()
 
   access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
 
-  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
+  // gpio 6 input mode
+  access->clearBit(RPI_GPIO_GPFSEL0, 1 << 18);
   access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
 
   access->closePeriperal();

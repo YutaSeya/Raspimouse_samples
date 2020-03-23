@@ -50,29 +50,11 @@ void motor_test()
   Pwm *pwm = Pwm::getInstance();
 
   std::printf("pwm setting done.\n");
-  std::printf("set 1 100, set2 100\n");
-  pwm->set(100, 100);
-
-  sleep(3);
-
-  _mtx.lock();
-  while(access->checkBusy());
-
-  access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
-
-  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
-
-  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 16);
-
-  access->closePeriperal();
-
-  _mtx.unlock();
-
-  std::printf("set 1 -100, set2 -100\n");
-
-  pwm->set(100, 100);
-
-  sleep(3);
+  for(int i = 100; i < 15; i+=100){
+    std::printf("set 1 set2 %d\n", i);
+    pwm->set(i, i);
+    sleep(3);
+  }
 
   pwm->set(0,0);
 }

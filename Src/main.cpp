@@ -56,6 +56,12 @@ void motor_test()
     sleep(1);
   }
 
+  for(int i = 1400; i > 100; i-=100){
+    std::printf("set 1 set2 %d\n", i);
+    pwm->set(i, i);
+    sleep(1);
+  }
+
   pwm->set(0,0);
 
   _mtx.lock();

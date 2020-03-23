@@ -30,10 +30,10 @@ void motor_test()
   access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
 
   // GPIO6 output
-  access->setBit(RPI_GPIO_GPFSEL0, 1 << 18);
+  //access->setBit(RPI_GPIO_GPFSEL0, 1 << 18);
 
   // GPIO16 output 
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 18);
+  //access->setBit(RPI_GPIO_GPFSEL1, 1 << 18);
 
   // setting dir bit
   //access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);

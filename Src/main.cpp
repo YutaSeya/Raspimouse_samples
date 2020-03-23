@@ -130,7 +130,7 @@ void motor_right_test()
   access->setBit(RPI_GPIO_GPFSEL0, 1 << 18);
 
   // setting dir bit
-  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
+  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
 
   access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
 
@@ -160,8 +160,7 @@ void motor_right_test()
 
   access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
 
-  // gpio 6 input mode
-  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
+  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
   access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
 
   access->closePeriperal();
@@ -202,38 +201,6 @@ void motor_right_test()
   _mtx.unlock();
 }
 
-void certain_GPIO6()
-{
-  // motor enable pin setting
-  Mem_Access *access = Mem_Access::getInstance();
-
-  _mtx.lock();
-  while(access->checkBusy());
-
-  access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
-
-  // GPIO6 output 
-  access->setBit(RPI_GPIO_GPFSEL0, 1 << 18);
-
-  // setting dir bit
-  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
-
-  sleep(5);
-  std::printf("sleep end\r\n");
-
-  // setting dir bit
-  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
-
-  sleep(5);
-  std::printf("sleep end\r\n");
-
-  access->closePeriperal();
-
-  _mtx.unlock();
-
-  
-}
-
 int main()
 {
   //led_test();
@@ -241,8 +208,7 @@ int main()
   //mcp3204_test();
   //sensor_test();
   //motor_left_test();
-  //motor_right_test();
-  certain_GPIO6();
+  motor_right_test();
 
   return 0;
 }

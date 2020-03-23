@@ -127,8 +127,8 @@ void motor_right_test()
   access->setBit(RPI_GPIO_GPFSEL1, 1 << 11);
 
   // GPIO6 output 
-  access->clearBit(RPI_GPIO_GPFSEL1, 1 << 19);
-  access->clearBit(RPI_GPIO_GPFSEL1, 1 << 20);
+  access->clearBit(RPI_GPIO_GPFSEL0, 1 << 19);
+  access->clearBit(RPI_GPIO_GPFSEL0, 1 << 20);
   access->setBit(RPI_GPIO_GPFSEL0, 1 << 18);
 
   // setting dir bit

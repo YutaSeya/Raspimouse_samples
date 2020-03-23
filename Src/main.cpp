@@ -16,7 +16,7 @@ void sw_test();
 void mcp3204_test();
 void sensor_test();
 
-void motor_test()
+void motor_left_test()
 {
   // motor enable pin setting
   Mem_Access *access = Mem_Access::getInstance();
@@ -109,13 +109,108 @@ void motor_test()
   _mtx.unlock();
 }
 
+void motor_right_test()
+{
+  // motor enable pin setting
+  Mem_Access *access = Mem_Access::getInstance();
+
+  _mtx.lock();
+  while(access->checkBusy());
+
+  access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
+
+  access->setBit(RPI_GPIO_GPFSEL0, 1 << 15);
+  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
+
+  // GPIO6 output 
+  access->setBit(RPI_GPIO_GPFSEL0, 1 << 18);
+  // setting dir bit
+  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
+
+  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
+
+  // GPIO12 set alt 0 
+  access->clearBit(RPI_GPIO_GPFSEL1, 1 << 6);
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 8);
+  // GPIO13 set alt 0 
+  access->clearBit(RPI_GPIO_GPFSEL1, 1 << 9);
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 11);
+
+  access->closePeriperal();
+
+  _mtx.unlock();
+
+  Pwm *pwm = Pwm::getInstance();
+
+  std::printf("pwm setting done.\n");
+  for(int i = 500; i < 1500; i+=100){
+    std::printf("set 1 set2 %d\n", i);
+    pwm->set(i, 0);
+    sleep(1);
+  }
+
+  for(int i = 1300; i > 400; i-=100){
+    std::printf("set 1 set2 %d\n", i);
+    pwm->set(i, 0);
+    sleep(1);
+  }
+
+  pwm->set(0,0);
+
+  _mtx.lock();
+  while(access->checkBusy());
+
+  access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
+
+  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
+  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
+
+  access->closePeriperal();
+
+  _mtx.unlock();
+
+  std::printf("inverse check\r\n");
+  for(int i = 500; i < 1500; i+=100){
+    std::printf("set 1 set2 %d\n", i);
+    pwm->set(i, 0);
+    sleep(1);
+  }
+
+  for(int i = 1300; i > 400; i-=100){
+    std::printf("set 1 set2 %d\n", i);
+    pwm->set(i, 0);
+    sleep(1);
+  }
+
+  pwm->set(0,0);
+
+  _mtx.lock();
+  while(access->checkBusy());
+
+  access->openPeriperal(RPI_GPIO_SIZE, RPI_GPIO_BASE);
+
+  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 5);
+
+  // GPIO12 gpio output
+  access->clearBit(RPI_GPIO_GPFSEL1, 1 << 8);
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 6);
+  // GPIO13 gpio output
+  access->clearBit(RPI_GPIO_GPFSEL1, 1 << 11);
+  access->setBit(RPI_GPIO_GPFSEL1, 1 << 9);
+
+  access->closePeriperal();
+
+  _mtx.unlock();
+}
+
 int main()
 {
   //led_test();
   //sw_test();
   //mcp3204_test();
   //sensor_test();
-  motor_test();
+  motor_left_test();
+  motor_right_test();
   return 0;
 }
 

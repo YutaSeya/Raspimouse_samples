@@ -145,13 +145,13 @@ void motor_right_test()
   std::printf("pwm setting done.\n");
   for(int i = 500; i < 1500; i+=100){
     std::printf("set 1 set2 %d\n", i);
-    pwm->set(i, 0);
+    pwm->set(0, i);
     sleep(1);
   }
 
   for(int i = 1300; i > 400; i-=100){
     std::printf("set 1 set2 %d\n", i);
-    pwm->set(i, 0);
+    pwm->set(0, i);
     sleep(1);
   }
 
@@ -172,13 +172,13 @@ void motor_right_test()
   std::printf("inverse check\r\n");
   for(int i = 500; i < 1500; i+=100){
     std::printf("set 1 set2 %d\n", i);
-    pwm->set(i, 0);
+    pwm->set(0, i);
     sleep(1);
   }
 
   for(int i = 1300; i > 400; i-=100){
     std::printf("set 1 set2 %d\n", i);
-    pwm->set(i, 0);
+    pwm->set(0, i);
     sleep(1);
   }
 

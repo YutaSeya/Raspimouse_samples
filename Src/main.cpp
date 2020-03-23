@@ -68,7 +68,7 @@ void motor_test()
   // GPIO12 gpio output
   access->clearBit(RPI_GPIO_GPFSEL1, 1 << 8);
   access->setBit(RPI_GPIO_GPFSEL1, 1 << 6);
-  // GPIO13 set alt 0 
+  // GPIO13 gpio output
   access->clearBit(RPI_GPIO_GPFSEL1, 1 << 11);
   access->setBit(RPI_GPIO_GPFSEL1, 1 << 9);
 

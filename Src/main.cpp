@@ -50,7 +50,7 @@ void motor_test()
   Pwm *pwm = Pwm::getInstance();
 
   std::printf("pwm setting done.\n");
-  for(int i = 100; i < 15; i+=100){
+  for(int i = 100; i < 1500; i+=100){
     std::printf("set 1 set2 %d\n", i);
     pwm->set(i, i);
     sleep(3);

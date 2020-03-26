@@ -154,7 +154,7 @@ int main()
   //sw_test();
   //mcp3204_test();
   //sensor_test();
-  motor_pwm_test();
+  //motor_pwm_test();
   motor_test();
   return 0;
 }

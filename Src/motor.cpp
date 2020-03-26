@@ -101,16 +101,16 @@ void Motor::set(int32_t left, int32_t right)
 
   if(left < 0){
     left = -1 * left;
-    set_bit |= 1 << 16;
+    set_bit = 1 << 16;
   } else {
-    clear_bit |= 1 << 16;
+    clear_bit = 1 << 16;
   }
 
   if(right < 0){
     right = -1 * right;
-    clear_bit |= 1 << 6;
+    clear_bit = 1 << 6;
   } else {
-    set_bit |= 1 << 6;
+    set_bit = 1 << 6;
   }
 
   _mtx.lock();

@@ -43,7 +43,9 @@ void motor_test()
   access->setBit(RPI_GPIO_GPFSEL0, 1 << 18);
 
   // setting dir bit
-  access->writeReg(RPI_GPIO_OUTPUT_SET_0, 1 << 5 | 1 << 6);
+  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
+
+  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
 
   access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 16);
 

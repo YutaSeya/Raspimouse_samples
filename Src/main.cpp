@@ -10,13 +10,14 @@
 #include "mcp3204.h"
 #include "sensor.h"
 #include "pipwm.h"
+#include "motor.h"
 
 void led_test();
 void sw_test();
 void mcp3204_test();
 void sensor_test();
 
-void motor_test()
+void motor_pwm_test()
 {
   // motor enable pin setting
   Mem_Access *access = Mem_Access::getInstance();
@@ -37,10 +38,6 @@ void motor_test()
   // gpio 5,6 output
   access->setBit(RPI_GPIO_GPFSEL0, 1 << 15);
   access->setBit(RPI_GPIO_GPFSEL0, 1 << 18);
-
-  uint32_t read_byte = access->readBit(RPI_GPIO_GPFSEL0, 1 << 18);
-
-  std::printf("read byte = %d\n", read_byte >> 18);
 
   // GPIO16 output 
   access->setBit(RPI_GPIO_GPFSEL1, 1 << 18);
@@ -119,6 +116,37 @@ void motor_test()
   _mtx.unlock();
 }
 
+void motor_test()
+{
+  Motor *motor = Motor::getInstance();
+
+  std::printf("positive check\r\n");
+  for(int i = 500; i < 1000; i+=100){
+    std::printf("set 1 set2 %d\n", i);
+    motor->set(i, i);
+    sleep(1);
+  }
+
+  for(int i = 900; i > 400; i-=100){
+    std::printf("set 1 set2 %d\n", i);
+    motor->set(i, i);
+    sleep(1);
+  }
+
+  std::printf("inverse check\r\n");
+  for(int i = 500; i < 1000; i+=100){
+    std::printf("set 1 set2 %d\n", i);
+    motor->set(-i, -i);
+    sleep(1);
+  }
+
+  for(int i = 900; i > 400; i-=100){
+    std::printf("set 1 set2 %d\n", i);
+    motor->set(-i, -i);
+    sleep(1);
+  }
+  
+}
 
 int main()
 {
@@ -126,8 +154,8 @@ int main()
   //sw_test();
   //mcp3204_test();
   //sensor_test();
+  motor_pwm_test();
   motor_test();
-  
   return 0;
 }
 

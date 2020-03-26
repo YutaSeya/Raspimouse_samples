@@ -37,9 +37,9 @@ void motor_test()
   // gpio 5,6 output
   access->setBit(RPI_GPIO_GPFSEL0, 1 << 15 | 1 << 18);
 
-  uint32_t read_byte = access->readByte(RPI_GPIO_GPFSEL0);
+  uint32_t read_byte = access->readBit(RPI_GPIO_GPFSEL0, 1 << 18);
 
-  std::printf("read byte = %d\n", read_byte);
+  std::printf("read byte = %d\n", read_byte >> 18);
 
   // GPIO16 output 
   access->setBit(RPI_GPIO_GPFSEL1, 1 << 18);

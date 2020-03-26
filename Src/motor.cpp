@@ -108,18 +108,19 @@ void Motor::set(int32_t left, int32_t right)
     access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 16);
   }
 
-  if(right < 0){
-    right = -1 * right;
-    access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
-  } else {
-    access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
-    access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
-  }
-
   if(left == 0 && right == 0){
     access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 5);
   } else {
     access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
+  }
+
+  if(right < 0){
+    right = -1 * right;    
+    access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
+    access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
+  } else {
+    access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
+    access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
   }
   
   access->closePeriperal();

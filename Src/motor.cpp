@@ -103,16 +103,16 @@ void Motor::set(int32_t left, int32_t right)
 
   if(left < 0){
     left = -1 * left;
-    set_bit = 1 << 16;
-  } else {
     clear_bit = 1 << 16;
+  } else {
+    set_bit = 1 << 16;
   }
 
   if(right < 0){
     right = -1 * right;
-    clear_bit = 1 << 6;
-  } else {
     set_bit = 1 << 6;
+  } else {
+    clear_bit = 1 << 6;
   }
 
   printf("set bit = %d, clear bit = %d\n", set_bit, clear_bit);

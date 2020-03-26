@@ -20,6 +20,7 @@ void motor_test()
 {
   // motor enable pin setting
   Mem_Access *access = Mem_Access::getInstance();
+  Pwm *pwm = Pwm::getInstance();
 
   _mtx.lock();
   while(access->checkBusy());
@@ -36,18 +37,12 @@ void motor_test()
   // gpio 5,6 output
   access->setBit(RPI_GPIO_GPFSEL0, 1 << 15 | 1 << 18);
 
+  uint32_t read_byte = access->readByte(RPI_GPIO_GPFSEL0);
+
+  std::printf("read byte = %d\n", read_byte);
+
   // GPIO16 output 
   access->setBit(RPI_GPIO_GPFSEL1, 1 << 18);
-
-  access->closePeriperal();
-
-  _mtx.unlock();
-
-  _mtx.lock();
-
-  while(access->checkBusy());
-
-  access->openPeriperal(RPI_GPIO_BASE);
 
   // setting dir bit
   access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5 | 1 << 6);
@@ -57,8 +52,6 @@ void motor_test()
   access->closePeriperal();
 
   _mtx.unlock();
-
-  Pwm *pwm = Pwm::getInstance();
 
   std::printf("pwm setting done.\n");
   for(int i = 500; i < 1000; i+=100){

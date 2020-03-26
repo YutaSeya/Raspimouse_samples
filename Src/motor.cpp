@@ -6,7 +6,7 @@ Motor* Motor::instance = nullptr;
 Motor::Motor()
 {
   access = Mem_Access::getInstance();
-  pwm = Pwm::getInstance();
+  pwm = Pwm::getInstance(); 
   init();
 }
 
@@ -30,13 +30,13 @@ void Motor::init()
   access->setBit(RPI_GPIO_GPFSEL1, 1 << 18);
 
   // setting dir bit(positive direction)
-  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
+  //access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
 
-  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 16);
+  //access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 16);
 
-  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
+  //access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
 
-  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
+  //access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
 
   access->closePeriperal();
 

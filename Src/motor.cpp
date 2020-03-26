@@ -99,6 +99,7 @@ void Motor::set(int32_t left, int32_t right)
 
   uint32_t clear_bit = 0;
   uint32_t set_bit = 0;
+  printf("left = %4d, right = %4d\n", left, right);
 
   if(left < 0){
     left = -1 * left;

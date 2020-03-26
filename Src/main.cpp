@@ -50,13 +50,13 @@ void motor_left_test()
   Pwm *pwm = Pwm::getInstance();
 
   std::printf("pwm setting done.\n");
-  for(int i = 500; i < 1500; i+=100){
+  for(int i = 500; i < 1000; i+=100){
     std::printf("set 1 set2 %d\n", i);
     pwm->set(i, 0);
     sleep(1);
   }
 
-  for(int i = 1300; i > 400; i-=100){
+  for(int i = 900; i > 400; i-=100){
     std::printf("set 1 set2 %d\n", i);
     pwm->set(i, 0);
     sleep(1);
@@ -208,8 +208,8 @@ int main()
   //sw_test();
   //mcp3204_test();
   //sensor_test();
-  motor_left_test();
   motor_right_test();
+  motor_left_test();
 
   return 0;
 }

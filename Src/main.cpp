@@ -16,7 +16,7 @@ void sw_test();
 void mcp3204_test();
 void sensor_test();
 
-void motor_left_test()
+void motor_test()
 {
   // motor enable pin setting
   Mem_Access *access = Mem_Access::getInstance();
@@ -38,8 +38,14 @@ void motor_left_test()
 
   // GPIO16 output 
   access->setBit(RPI_GPIO_GPFSEL1, 1 << 18);
+
+  // GPIO6 output 
+  access->setBit(RPI_GPIO_GPFSEL0, 1 << 16);
+
   // setting dir bit
   access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 16);
+
+  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
 
   access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
 
@@ -52,13 +58,13 @@ void motor_left_test()
   std::printf("pwm setting done.\n");
   for(int i = 500; i < 1000; i+=100){
     std::printf("set 1 set2 %d\n", i);
-    pwm->set(i, 0);
+    pwm->set(i, i);
     sleep(1);
   }
 
   for(int i = 900; i > 400; i-=100){
     std::printf("set 1 set2 %d\n", i);
-    pwm->set(i, 0);
+    pwm->set(i, i);
     sleep(1);
   }
 
@@ -71,97 +77,6 @@ void motor_left_test()
 
   access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 16);
 
-  access->closePeriperal();
-
-  _mtx.unlock();
-
-  std::printf("inverse check\r\n");
-  for(int i = 500; i < 1000; i+=100){
-    std::printf("set 1 set2 %d\n", i);
-    pwm->set(i, 0);
-    sleep(1);
-  }
-
-  for(int i = 900; i > 400; i-=100){
-    std::printf("set 1 set2 %d\n", i);
-    pwm->set(i, 0);
-    sleep(1);
-  }
-
-  pwm->set(0,0);
-
-  _mtx.lock();
-  while(access->checkBusy());
-
-  access->openPeriperal(RPI_GPIO_BASE);
-
-  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 5);
-
-  // GPIO12 gpio output
-  access->clearBit(RPI_GPIO_GPFSEL1, 1 << 8);
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 6);
-  // GPIO13 gpio output
-  access->clearBit(RPI_GPIO_GPFSEL1, 1 << 11);
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 9);
-
-  access->closePeriperal();
-
-  _mtx.unlock();
-}
-
-void motor_right_test()
-{
-  // motor enable pin setting
-  Mem_Access *access = Mem_Access::getInstance();
-
-  _mtx.lock();
-  while(access->checkBusy());
-
-  access->openPeriperal(RPI_GPIO_BASE);
-
-  // GPIO12 set alt 0 
-  access->clearBit(RPI_GPIO_GPFSEL1, 1 << 6);
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 8);
-  // GPIO13 set alt 0 
-  access->clearBit(RPI_GPIO_GPFSEL1, 1 << 9);
-  access->setBit(RPI_GPIO_GPFSEL1, 1 << 11);
-
-  // GPIO5 output
-  access->setBit(RPI_GPIO_GPFSEL0, 1 << 15);
-  // GPIO6 output 
-  access->setBit(RPI_GPIO_GPFSEL0, 1 << 18);
-
-  // setting dir bit
-  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
-
-  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
-
-  access->closePeriperal();
-
-  _mtx.unlock();
-
-  Pwm *pwm = Pwm::getInstance();
-
-  std::printf("pwm setting done.\n");
-  for(int i = 500; i < 1000; i+=100){
-    std::printf("set 1 set2 %d\n", i);
-    pwm->set(0, i);
-    sleep(1);
-  }
-
-  for(int i = 900; i > 400; i-=100){
-    std::printf("set 1 set2 %d\n", i);
-    pwm->set(0, i);
-    sleep(1);
-  }
-
-  pwm->set(0,0);
-
-  _mtx.lock();
-  while(access->checkBusy());
-
-  access->openPeriperal(RPI_GPIO_BASE);
-
   access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
 
   access->closePeriperal();
@@ -171,13 +86,13 @@ void motor_right_test()
   std::printf("inverse check\r\n");
   for(int i = 500; i < 1000; i+=100){
     std::printf("set 1 set2 %d\n", i);
-    pwm->set(0, i);
+    pwm->set(i, i);
     sleep(1);
   }
 
   for(int i = 900; i > 400; i-=100){
     std::printf("set 1 set2 %d\n", i);
-    pwm->set(0, i);
+    pwm->set(i, i);
     sleep(1);
   }
 
@@ -202,15 +117,15 @@ void motor_right_test()
   _mtx.unlock();
 }
 
+
 int main()
 {
   //led_test();
   //sw_test();
   //mcp3204_test();
   //sensor_test();
-  motor_right_test();
-  motor_left_test();
-
+  motor_test();
+  
   return 0;
 }
 
@@ -253,7 +168,7 @@ void mcp3204_test()
     ad_data[1] = mcp3204->getAD(Mcp3204::SENSOR_LEFT);
     ad_data[2] = mcp3204->getAD(Mcp3204::SENSOR_RIGHT);
     ad_data[3] = mcp3204->getAD(Mcp3204::SENSOR_RIGHT_FRONT);
-    std::printf("%4d,%4d,%4d,%4d\r\n",ad_data[0], ad_data[1], ad_data[2], ad_data[3]);
+    std::printf("%4d,%4d,%4d,%4d\r",ad_data[0], ad_data[1], ad_data[2], ad_data[3]);
     sleep(1);
   }
 
@@ -285,7 +200,7 @@ void sensor_test()
     sensor_data = sensor->get(Sensor::FRONT);
     sensor_value[4] = sensor_data.now;
 
-    std::printf("%4d, %4d, %4d, %4d, %4d\n", sensor_value[0],
+    std::printf("%4d, %4d, %4d, %4d, %4d\r", sensor_value[0],
     sensor_value[1],sensor_value[2],sensor_value[3],sensor_value[4] );
     count++;
     sleep(1);

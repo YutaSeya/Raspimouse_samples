@@ -145,6 +145,8 @@ void motor_test()
     motor->set(-i, -i);
     sleep(1);
   }
+
+  motor->set(0, 0);
   
 }
 

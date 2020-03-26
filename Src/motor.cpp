@@ -88,6 +88,7 @@ void Motor::set(int32_t left, int32_t right)
 {
   if(left == 0 && right == 0){
     turnOnOff(false, false);
+    return;
   } else if(left == 0){
     turnOnOff(false, true);
   } else if(right == 0){
@@ -112,6 +113,8 @@ void Motor::set(int32_t left, int32_t right)
   } else {
     set_bit = 1 << 6;
   }
+
+  printf("set bit = %d, clear bit = %d\n", set_bit, clear_bit);
 
   _mtx.lock();
   while(access->checkBusy());

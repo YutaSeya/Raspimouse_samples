@@ -97,35 +97,29 @@ void Motor::set(int32_t left, int32_t right)
     turnOnOff(true, true);
   }
 
-  uint32_t clear_bit = 0;
-  uint32_t set_bit = 0;
-  printf("left = %4d, right = %4d\n", left, right);
-
-  if(left < 0){
-    left = -1 * left;
-    set_bit = 1 << 16;
-  } else {
-    clear_bit = 1 << 16;
-  }
-
-  if(right < 0){
-    right = -1 * right;
-    clear_bit = 1 << 6;
-  } else {
-    set_bit = 1 << 6;
-  }
-
-  printf("set bit = %d, clear bit = %d\n", set_bit, clear_bit);
-
   _mtx.lock();
   while(access->checkBusy());
 
   access->openPeriperal(RPI_GPIO_BASE);
 
-  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
-  access->setBit(RPI_GPIO_OUTPUT_SET_0, set_bit);
-  access->setBit(RPI_GPIO_OUTPUT_CLR_0, clear_bit);
-
+  if(left < 0 || right < 0){
+    left = -1 * left;
+    right = -1 * right;
+    access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 16);
+    access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
+  } else if(left < 0 || right > 0){
+    left = -1 * left;
+    access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
+    access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 16 | 1 << 6);
+  } else if(left > 0 || right < 0){
+    right = -1 * right;
+    access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6 | 1 << 16);
+  } else {
+    access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
+    access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
+    access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 16);
+  }
+  
   access->closePeriperal();
 
   _mtx.unlock();

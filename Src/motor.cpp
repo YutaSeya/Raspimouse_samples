@@ -6,7 +6,7 @@ Motor* Motor::instance = nullptr;
 Motor::Motor()
 {
   access = Mem_Access::getInstance();
-  pwm = Pwm::getInstance(); 
+  pwm = Pwm::getInstance();
   init();
 }
 
@@ -30,13 +30,13 @@ void Motor::init()
   access->setBit(RPI_GPIO_GPFSEL1, 1 << 18);
 
   // setting dir bit(positive direction)
-  //access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
+  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
 
-  //access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 16);
+  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 16);
 
-  //access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
+  access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
 
-  //access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
+  access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
 
   access->closePeriperal();
 
@@ -79,8 +79,6 @@ void Motor::turnOnOff(bool left, bool right)
     access->setBit(RPI_GPIO_GPFSEL1, 1 << 9);
   }
 
-  //if(left == false && right == false) access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 5);
-
   access->closePeriperal();
 
   _mtx.unlock();
@@ -107,20 +105,16 @@ void Motor::set(int32_t left, int32_t right)
   if(left < 0 && right < 0){
     left = -1 * left;
     right = -1 * right;
-    access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
     access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 16);
     access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
   } else if(left < 0 && right > 0){
     left = -1 * left;
-    access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
     access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
     access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 16 | 1 << 6);
   } else if(left > 0 && right < 0){
     right = -1 * right;
-    access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
     access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6 | 1 << 16);
   } else {
-    access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 5);
     access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
     access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
     access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 16);

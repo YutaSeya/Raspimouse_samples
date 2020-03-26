@@ -115,6 +115,7 @@ void Motor::set(int32_t left, int32_t right)
   }
 
   if(right < 0){
+    right = -1 * right;
     access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);
   } else {
     access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 6);

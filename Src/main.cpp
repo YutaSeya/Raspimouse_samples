@@ -24,7 +24,7 @@ void motor_left_test()
   _mtx.lock();
   while(access->checkBusy());
 
-  access->openPeriperal(RPI_GPIO_SIZE);
+  access->openPeriperal(RPI_GPIO_BASE);
 
   // GPIO12 set alt 0 
   access->clearBit(RPI_GPIO_GPFSEL1, 1 << 6);
@@ -67,7 +67,7 @@ void motor_left_test()
   _mtx.lock();
   while(access->checkBusy());
 
-  access->openPeriperal(RPI_GPIO_SIZE);
+  access->openPeriperal(RPI_GPIO_BASE);
 
   access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 16);
 
@@ -93,7 +93,7 @@ void motor_left_test()
   _mtx.lock();
   while(access->checkBusy());
 
-  access->openPeriperal(RPI_GPIO_SIZE);
+  access->openPeriperal(RPI_GPIO_BASE);
 
   access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 5);
 
@@ -117,7 +117,7 @@ void motor_right_test()
   _mtx.lock();
   while(access->checkBusy());
 
-  access->openPeriperal(RPI_GPIO_SIZE);
+  access->openPeriperal(RPI_GPIO_BASE);
 
   // GPIO12 set alt 0 
   access->clearBit(RPI_GPIO_GPFSEL1, 1 << 6);
@@ -160,7 +160,7 @@ void motor_right_test()
   _mtx.lock();
   while(access->checkBusy());
 
-  access->openPeriperal(RPI_GPIO_SIZE);
+  access->openPeriperal(RPI_GPIO_BASE);
 
   access->setBit(RPI_GPIO_OUTPUT_SET_0, 1 << 6);
 
@@ -186,7 +186,7 @@ void motor_right_test()
   _mtx.lock();
   while(access->checkBusy());
 
-  access->openPeriperal(RPI_GPIO_SIZE);
+  access->openPeriperal(RPI_GPIO_BASE);
 
   access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 5);
 

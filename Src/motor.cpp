@@ -79,7 +79,7 @@ void Motor::turnOnOff(bool left, bool right)
     access->setBit(RPI_GPIO_GPFSEL1, 1 << 9);
   }
 
-  if(left == false && right == false) access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 5);
+  //if(left == false && right == false) access->setBit(RPI_GPIO_OUTPUT_CLR_0, 1 << 5);
 
   access->closePeriperal();
 
